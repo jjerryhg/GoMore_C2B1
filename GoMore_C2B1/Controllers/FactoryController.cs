@@ -40,7 +40,7 @@ namespace GoMore_C2B1.Controllers
                 StringContent sc = new StringContent(JsonConvert.SerializeObject(jsonValues), UnicodeEncoding.UTF8);
 
                 HttpClient http = new HttpClient();
-                string url = "https://localhost:44302/demoapi/GASLabReceiveFile";
+                string url = "http://140.118.121.104:17402/demoapi/GASLabReceiveFile";
                 MultipartFormDataContent mulContent = new MultipartFormDataContent("----WebKitFormBoundaryrXRBKlhEeCbfHIY");
 
                 var fileContent = new StreamContent(file.InputStream);
@@ -64,7 +64,7 @@ namespace GoMore_C2B1.Controllers
 
             Debug.WriteLine("recevied your file,file name is :" + file.FileName);
 
-            await SaveStream(file.InputStream, @"D:\SimulationFTP", file.FileName);
+            await SaveStream(file.InputStream, @"C:\Users\Administrator\Desktop\FTP", file.FileName);
 
 
         }
