@@ -35,8 +35,7 @@ namespace GoMore_C2B1.Controllers
             {
                 var jsonValues = new Dictionary<string, string>
                 {
-                    { "text", "test" },
-                    { "text2", "test2" }
+                    { "option", "test" }
                 };
                 StringContent sc = new StringContent(JsonConvert.SerializeObject(jsonValues), UnicodeEncoding.UTF8);
 
