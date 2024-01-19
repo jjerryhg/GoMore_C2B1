@@ -1,0 +1,99 @@
+﻿
+@{ ViewBag.Title = "Upload"; }
+
+@Styles.Render("~/Content/main")
+@Styles.Render("~/Content/DarkMode")
+
+
+<main id="content" style="margin-left: 50px; margin-top: 70px;">
+    <section id="upload">
+        <div class="upload-wrapper">
+            <div class="upload-container">
+                <div class="upload-header justify-content-between">
+                    <div class="ms-2">
+                        <span>DWG Upload</span>
+                    </div>
+                </div>
+                <form action="~/Factory/Client" method="post" enctype="multipart/form-data">
+                    <div class="upload-body d-flex flex-column">
+                        <div class="ms-5 mt-4 mb-1">
+                            <span><b>File Name: </b><span id="fileName"></span></span>
+                        </div>
+                        <div class="d-flex justify-content-center mb-1 me-5 ms-5">
+                            <input class="form-control" type="file" name="file" id="formFile" accept=".ifc,.dwg">
+                        </div>
+                        <div class="d-flex justify-content-end me-5 mb-3">
+                            <!--
+                <button class="upload-btn">
+                    Search
+                </button>
+               -->
+                            <button class="upload-btn" type="submit">
+                                Confirm
+                            </button>
+                        </div>
+                    </div>
+                </form>
+          <!--      
+        <div class="upload-footer">
+            @*<div class="ms-5 mt-2 mb-1">
+                    <span>Keyword: </span>
+                    <input type="search" class="" placeholder=" Search">
+                </div>*@
+            <div class="table-container ms-5 mt-3 me-5">
+                <table class="table table-striped table-bordered" id="upload-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">File Names</th>
+                            <th scope="col">Uploaded Data</th>
+                            <th scope="col">Uploader</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Jerry</td>
+                            <td>XXX.jpg</td>
+                            <td>B10902xxx</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Yeo</td>
+                            <td>YYY.jpg</td>
+                            <td>B10902xxx</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Judy</td>
+                            <td>ZZZ.jpg</td>
+                            <td>B10902xxx</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul class="pagination justify-content-center" id="Uploadpagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+                -->
+    </div>
+         
+            </div>
+    </section>
+</main>
+
+<script src="~/Scripts/main.js"></script>
+<script src="~/Scripts/upload.js"></script>
