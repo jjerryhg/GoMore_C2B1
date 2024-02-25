@@ -112,4 +112,10 @@
   <data name="Display" xml:space="preserve">
     <value>Display</value>
   </data>
+  <data name="Accountmanager" xml:space="preserve">
+    <value>Account Manager</value>
+  </data>
+  <data name="Modelmanager" xml:space="preserve">
+    <value>Model Manager</value>
+  </data>
 </root>

@@ -61,6 +61,15 @@ namespace GoMore_C2B1.Resource {
         }
         
         /// <summary>
+        ///   查詢類似 Account Manager 的當地語系化字串。
+        /// </summary>
+        public static string Accountmanager {
+            get {
+                return ResourceManager.GetString("Accountmanager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查詢類似 Display 的當地語系化字串。
         /// </summary>
         public static string Display {
@@ -84,6 +93,15 @@ namespace GoMore_C2B1.Resource {
         public static string Library {
             get {
                 return ResourceManager.GetString("Library", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 Model Manager 的當地語系化字串。
+        /// </summary>
+        public static string Modelmanager {
+            get {
+                return ResourceManager.GetString("Modelmanager", resourceCulture);
             }
         }
         

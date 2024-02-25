@@ -57,6 +57,16 @@
                         </a>
                     </div>
                     <a href="~/Library/ModelLibrary"><i class="bi bi-folder-fill"></i>@Resource.Library</a>
+                    @if (Session["Account"] != null)
+                    {
+                        if (Session["AccountType"].Equals("1"))
+                        {
+                            <a href=""><i class="bi bi-person-badge"></i>@Resource.Accountmanager</a>
+                            <a href=""><i class="bi bi-house-gear"></i>@Resource.Modelmanager</a>
+                        }
+                    
+
+
                     <hr class="hr hr-blurry" />
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle" onclick="mydropFunction('myDropdown')"><i class="bi bi-gear-wide-connected"></i>@Resource.Factory</a>
@@ -66,15 +76,17 @@
                         </div>
                     </div>
                     <hr class="hr hr-blurry" />
+
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle" onclick="mydropFunction('myDropdown-1')"><i class="bi bi-calendar3"></i>@Resource.Schedule</a>
                         <div class="dropdown-content" id="myDropdown-1">
                             @*<a href="~/Schedule/Info"><i class="bi bi-info-lg"></i>Info</a>*@
                             <a href="~/Schedule/Display"><i class="bi bi-display"></i>@Resource.Display</a>
                             @*<a href="~/Schedule/Search"><i class="bi bi-search"></i>Search</a>
-                            <a href="~/Schedule/Status"><i class="bi bi-columns-gap"></i>Status</a>*@
+                <a href="~/Schedule/Status"><i class="bi bi-columns-gap"></i>Status</a>*@
                         </div>
                     </div>
+                    }
                 </div>
             </div>
         </div>
@@ -180,7 +192,7 @@
                                         <span class="text-white mb-3">@Session["Lastname"] @Session["Firstname"]</span>
                                         <span class="text-white mb-3">Email: @Session["Account"]</span>
                                         <span class="text-white mb-3">Organization: @Session["CompanyOrOrganization"]</span>
-                                        <span class="text-white mb-3">Identity: </span>
+                                        <span class="text-white mb-3">Identity: @Session["Identity"]</span>
                                     </div>
                                 </div>
                             </div>

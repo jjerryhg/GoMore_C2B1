@@ -112,4 +112,10 @@
   <data name="Display" xml:space="preserve">
     <value>顯示</value>
   </data>
+  <data name="Accountmanager" xml:space="preserve">
+    <value>用戶管理</value>
+  </data>
+  <data name="Modelmanager" xml:space="preserve">
+    <value>模型管理</value>
+  </data>
 </root>

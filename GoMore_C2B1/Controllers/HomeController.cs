@@ -13,6 +13,7 @@ namespace GoMore_C2B1.Controllers
     public class HomeController : Controller
     {
         private ApplicationDbContext user = new ApplicationDbContext();
+        private ApplicationDbContext manager = new ApplicationDbContext();
         public ActionResult Index()
         {
             return View();
@@ -21,6 +22,7 @@ namespace GoMore_C2B1.Controllers
         public ActionResult Register([Bind(Include = "Firstname,Lastname,Username,Email,Occupation,CompanyOrOrganization,Country,Password,Confitmpassword")] RegisterView uSERCLASS)
         {
             USERCLASS userobj = new USERCLASS();
+            Manager managerobj = new Manager();
             var regex = new Regex(@"
                         (?=.*[0-9])                     #必须包含数字
                         (?=.*[a-zA-Z])                  #必须包含小写或大写字母
@@ -40,12 +42,14 @@ namespace GoMore_C2B1.Controllers
                         userobj.Firstname = uSERCLASS.Firstname;
                         userobj.Lastname = uSERCLASS.Lastname;
                         userobj.Username = uSERCLASS.Username;
-                        userobj.Email = uSERCLASS.Email;
+                        managerobj.Email = userobj.Email = uSERCLASS.Email;
                         userobj.Occupation = uSERCLASS.Occupation;
                         userobj.CompanyOrOrganization = uSERCLASS.CompanyOrOrganization;
                         userobj.Country = uSERCLASS.Country;
                         userobj.Password = uSERCLASS.Password;
                         user.USER.Add(userobj);
+                        managerobj.AccountType = "0";
+                        manager.Managers.Add(managerobj);
                         user.SaveChanges();
                         TempData["Msg"] = "Register Successful";
                         return RedirectToAction("Index", "Home");
@@ -67,9 +71,11 @@ namespace GoMore_C2B1.Controllers
         public ActionResult Login(LoginView loginView) {
 
             List<USERCLASS> userclass = user.USER.Where(x => x.Email.Equals(loginView.Email)).ToList();
+            Manager GetAccountType = manager.Managers.Find(loginView.Email);
 
             if (userclass != null)
             {
+                
                 foreach (USERCLASS user in userclass)
                 {
                     if (loginView.Password.Equals(user.Password))
@@ -79,6 +85,15 @@ namespace GoMore_C2B1.Controllers
                         Session["Firstname"] = user.Firstname;
                         Session["Lastname"] = user.Lastname;
                         Session["CompanyOrOrganization"] = user.CompanyOrOrganization;
+                        if (GetAccountType.AccountType.Equals("1"))
+                        {
+                            Session["Identity"] = "Admin";
+                            Session["AccountType"] = "1";
+                        }
+                        else {
+                            Session["Identity"] = "Normal user";
+                            Session["AccountType"] = "0";
+                        }
                         return RedirectToAction("Index", "Home");
                     }
                     else
@@ -87,7 +102,7 @@ namespace GoMore_C2B1.Controllers
                         return RedirectToAction("Index", "Home");
                     }
                 }
-                TempData["Msg"] = "Error!No Object.";
+                TempData["Msg"] = "No have this account.";
                 return RedirectToAction("Index", "Home");
             }
             else {
