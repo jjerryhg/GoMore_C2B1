@@ -56,6 +56,21 @@ function resetpwd2() {
         inputField.type = 'password';
     }
 }
+function changeLanguage(lang) {
+    $.ajax({
+        url: '../Home/ChangeLanguage',
+        type: 'POST',
+        data: { lang: lang },
+        success: function () {
+            // 刷新页面以显示切换后的语言
+            location.reload();
+        },
+        error: function () {
+            // 处理错误
+            alert('Failed to change language.');
+        }
+    });
+}
 
 // toggle dropdown button 
 var currentdropbtn = ""

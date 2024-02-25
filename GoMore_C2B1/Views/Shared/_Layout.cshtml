@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using GoMore_C2B1.Resource;
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,11 +11,39 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="//unpkg.com/bootstrap-select-country@4.0.0/dist/js/bootstrap-select-country.min.js"></script>
+    <script src='https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js'></script>
+    <script src='https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js'></script>
+    <script src='https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js'></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     @Styles.Render("~/Content/navbar")
-
 </head>
 <body>
+    @if (TempData["Msg"] != null)
+    {
+
+        <dialog id="infoModal" style="">
+            <p id="error" style="text-align:center;font-size:20px;">@TempData["Msg"]</p>
+            <center><button id="close" style="height:40px;width:60px;" class="btn btn-bd-primary">close</button></center>
+        </dialog>
+
+        <script type="text/javascript">
+            let infoModal = document.querySelector("#infoModal");
+            let close = document.querySelector("#close");
+
+            close.addEventListener("click", function () {
+                infoModal.close();
+            })
+            infoModal.showModal();
+        </script>
+    }
     <nav class="d-flex flex-wrap justify-content-between navbar navbar-dark">
         <div class="left-menu">
             <div id="sidebar">
@@ -27,23 +56,23 @@
                             <img src="~/LogoTest.png" width="200">
                         </a>
                     </div>
-                    <a href="~/Library/ModelLibrary"><i class="bi bi-folder-fill"></i>Library</a>
+                    <a href="~/Library/ModelLibrary"><i class="bi bi-folder-fill"></i>@Resource.Library</a>
                     <hr class="hr hr-blurry" />
                     <div class="dropdown">
-                        <a href="#" class="dropdown-toggle" onclick="mydropFunction('myDropdown')"><i class="bi bi-gear-wide-connected"></i>Factory</a>
+                        <a href="#" class="dropdown-toggle" onclick="mydropFunction('myDropdown')"><i class="bi bi-gear-wide-connected"></i>@Resource.Factory</a>
                         <div class="dropdown-content" id="myDropdown">
-                            <a href="~/Factory/Upload"><i class="bi bi-upload"></i>Upload</a>
-                            <a href="~/Factory/Parameter"><i class="bi bi-wrench-adjustable"></i>Parameter</a>
+                            <a href="~/Factory/Upload"><i class="bi bi-upload"></i>@Resource.Upload</a>
+                            @*<a href="~/Factory/Parameter"><i class="bi bi-wrench-adjustable"></i>Parameter</a>*@
                         </div>
                     </div>
                     <hr class="hr hr-blurry" />
                     <div class="dropdown">
-                        <a href="#" class="dropdown-toggle" onclick="mydropFunction('myDropdown-1')"><i class="bi bi-calendar3"></i>Schedule</a>
+                        <a href="#" class="dropdown-toggle" onclick="mydropFunction('myDropdown-1')"><i class="bi bi-calendar3"></i>@Resource.Schedule</a>
                         <div class="dropdown-content" id="myDropdown-1">
-                            <a href="~/Schedule/Info"><i class="bi bi-info-lg"></i>Info</a>
-                            <a href="~/Schedule/Display"><i class="bi bi-display"></i>Display</a>
-                            <a href="~/Schedule/Search"><i class="bi bi-search"></i>Search</a>
-                            <a href="~/Schedule/Status"><i class="bi bi-columns-gap"></i>Status</a>
+                            @*<a href="~/Schedule/Info"><i class="bi bi-info-lg"></i>Info</a>*@
+                            <a href="~/Schedule/Display"><i class="bi bi-display"></i>@Resource.Display</a>
+                            @*<a href="~/Schedule/Search"><i class="bi bi-search"></i>Search</a>
+                            <a href="~/Schedule/Status"><i class="bi bi-columns-gap"></i>Status</a>*@
                         </div>
                     </div>
                 </div>
@@ -55,8 +84,8 @@
             <div class="mt-2 me-2">
 
             </div>
-            <button class="right-menu-btn"><i class="bi bi-house-door-fill"></i></button>
-            <button class="right-menu-btn"><i class="bi bi-headset"></i></button>
+            @*<button class="right-menu-btn"><i class="bi bi-house-door-fill"></i></button>*@
+            @*<button class="right-menu-btn"><i class="bi bi-headset"></i></button>*@
             <button class="right-menu-btn" type="button" id="guide" data-bs-toggle="modal" data-bs-target="#guideinfo"><i class="bi bi-info-circle-fill"></i></button>
             <div class="modal fade" id="guideinfo">
                 <div class="modal-dialog modal-dialog-centered" style="max-width: 950px;">
@@ -101,224 +130,239 @@
             </div>
 
 
-            <button class="right-menu-btn mdl-js-button mdl-button--icon" id="demo-menu-lower-right"><i class="bi bi-sliders"></i></button>
+            <button class="right-menu-btn mdl-js-button mdl-button--icon" id="demo-menu-lower-right"><i class="bi bi-translate"></i></button>
+
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-                <li class="mdl-menu__item">簡體中文</li>
-                <li class="mdl-menu__item">繁體中文</li>
-                <!-- <li disabled class="mdl-menu__item">Disabled Action</li> -->
-                <li class="mdl-menu__item">English</li>
+                <li class="mdl-menu__item" onclick="changeLanguage('zh-CN')" style="cursor: pointer;">
+                    <a class="dropdown-item d-flex align-items-center">
+                        <span>簡體中文</span>
+                    </a>
+                </li>
+
+                <li class="mdl-menu__item" onclick="changeLanguage('zh-TW')" style="cursor: pointer;">
+                    <a class="dropdown-item d-flex align-items-center">
+                        <span>繁體中文</span>
+                    </a>
+                </li>
+
+                <li class="mdl-menu__item" onclick="changeLanguage('en-US')" style="cursor: pointer;">
+                    <a class="dropdown-item d-flex align-items-center">
+                        <span>English</span>
+                    </a>
+                </li>
             </ul>
 
             <div class="vr d-flex align-items-center ms-2" style="height: 40px; border: 1px solid black;"></div>
 
-            <button class="right-menu-btn"><i class="bi bi-motherboard"></i></button>
+            @*<button class="right-menu-btn"><i class="bi bi-motherboard"></i></button>*@
+
             @if (Session["Account"] != null)
             {
-            <button class="right-menu-btn" type="button" id="myprofile" data-bs-toggle="modal" data-bs-target="#profileModal"><i class="bi bi-person-fill"></i></button>
-            }
+                <button class="right-menu-btn" type="button" id="myprofile" data-bs-toggle="modal" data-bs-target="#profileModal"><i class="bi bi-person-fill"></i></button>
 
-            <div class="modal fade" id="profileModal" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-body" style="background-color: yellow;">
-                            <button type="button" class="btn-close position-absolute mt-1 me-1 top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
-                            <div class="top-profile mt-2 p-5 d-flex justify-content-center">
-                                <div class="image d-flex flex-column justify-content-center align-items-center">
-                                    <button class="btn btn-secondary">
-                                        <img src="#" height="100" width="100" />
-                                    </button>
-                                    <span class="name mt-3">專案數量: 50</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-body" style="background-color: #01356B;">
-                            <div class="d-flex justify-content-center text-center ">
-                                <div class="d-flex flex-column">
-                                    <span class="text-white mb-3">Jerry</span>
-                                    <span class="text-white mb-3">Email B10902205@mail.edu.tw</span>
-                                    <span class="text-white mb-3">Organization Gomore</span>
-                                    <span class="text-white mb-3">Identity admin</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button class="right-menu-btn" type="button" id="login-modal" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-door-open-fill"></i></button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clearInputs()"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="login-container">
-                                <div class="login-form">
-                                    <form action="#" class="login-sub-form">
-                                        <div class="login-title mt-5">
-                                            <h2>Sign in to your account</h2>
-                                        </div>
-                                        <div class="login-upper-form">
-                                            <label>Email address</label> <br>
-                                            <input type="text" name="username" required=""> <br>
-                                            <label>Password</label> <br>
-                                            <div class="login-input-icons">
-                                                <i class="bi bi-eye icon" id="togglePassword" onclick="myFunction()"></i>
-                                                <input class="login-input-field" type="password" name="password" id="password" required="">
-                                            </div>
-                                            <br>
-                                            <div class="login-page-btn">
-                                                <button type="submit" id="submit">Log In</button> <br>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" onclick="clearInputs(), resetpwd()" class="btn btn-secondary" data-bs-target="#reset-Pass" data-bs-toggle="modal" data-bs-dismiss="modal">Forgot Password?</button>
-                            <button type="button" onclick="clearInputs(), resetpwd()" class="btn btn-primary" data-bs-target="#register-form" data-bs-toggle="modal" data-bs-dismiss="modal">Register</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="reset-Pass">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="reset-Pass"></h5>
-                            <button type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close">
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="forgot-wrapper">
-                                <div class="forgot-title">
-                                    <h2>Recover your password</h2>
-                                </div>
-                                <div class="forgot-body mt-5">
-                                    <form>
-                                        <div class="mb-3">
-                                            <label for="exampleInputPassword1" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="exampleInputPassword1">
-                                        </div>
-                                        <button type="submit" class="btn btn-secondary">Reset</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-primary"
-                                    data-bs-target="#exampleModal"
-                                    data-bs-toggle="modal"
-                                    data-bs-dismiss="modal">
-                                Back to Login
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="register-form" data-bs-theme="auto">
-                <div class="modal-dialog" style="max-width: 735px;" id="register">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="register-form">
-                            </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-
-                        <div class="modal-body">
-                            <div class="register-wrapper">
-                                <form class="register-sub-form">
-                                    <div class="register-form">
-                                        <h2>Registration Form</h2>
-                                        <div class="row row-space">
-                                            <div class="col-6">
-                                                <div class="input-box">
-                                                    <label>First Name *</label>
-                                                    <input type="text" placeholder="Please enter your first name" required="">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="input-box">
-                                                    <label>Last Name</label>
-                                                    <input type="text" placeholder="Please enter your last name">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="input-box">
-                                            <label>Username *</label>
-                                            <input type="text" placeholder="Please enter your username">
-                                        </div>
-                                        <div class="input-box">
-                                            <label>Email *</label>
-                                            <input type="email" placeholder="Please enter your email address" required="">
-                                        </div>
-                                        <div class="input-box">
-                                            <label>Occupation *</label>
-                                            <input type="text" placeholder="Please enter your occupation" required="">
-                                        </div>
-                                        <div class="input-box">
-                                            <label>Company / Organization *</label>
-                                            <input type="text" placeholder="Please enter your company / organization" required="">
-                                        </div>
-                                        <div class="input-box">
-                                            <label>Country</label>
-                                            <select class="countrypicker">
-                                            </select>
-                                        </div>
-                                        <div class="input-box">
-                                            <label>Password *</label>
-                                            <div class="login-input-icons">
-                                                <i class="bi bi-eye icon" id="togglePassword" onclick="myFunction1()"></i>
-                                                <input class="login-input-field" type="password" name="password" id="password1" placeholder="Please enter your password" required="">
-                                            </div>
-                                        </div>
-                                        <div class="input-box">
-                                            <label>Confirm Password *</label>
-                                            <div class="login-input-icons">
-                                                <i class="bi bi-eye icon" id="togglePassword" onclick="myFunction2()"></i>
-                                                <input class="login-input-field" type="password" name="password" id="password2" placeholder="Please confirm your password" required="">
-                                            </div>
-                                        </div>
-                                        <div class="register-btn">
-                                            <button type="submit">Register</button>
-                                        </div>
+                <div class="modal fade" id="profileModal" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body" style="background-color: yellow;">
+                                <button type="button" class="btn-close position-absolute mt-1 me-1 top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <div class="top-profile mt-2 p-5 d-flex justify-content-center">
+                                    <div class="image d-flex flex-column justify-content-center align-items-center">
+                                        <button class="btn btn-secondary">
+                                            <img src="#" height="100" width="100" />
+                                        </button>
+                                        @*<span class="name mt-3">專案數量: 50</span>*@
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button onclick="clearInputs(), resetpwd1(), resetpwd2()" class="btn btn-primary"
-                                    data-bs-target="#exampleModal"
-                                    data-bs-toggle="modal"
-                                    data-bs-dismiss="modal">
-                                Back to Login
-                            </button>
+                            <div class="modal-body" style="background-color: #01356B;">
+                                <div class="d-flex justify-content-center text-center ">
+                                    <div class="d-flex flex-column">
+                                        <span class="text-white mb-3">@Session["Lastname"] @Session["Firstname"]</span>
+                                        <span class="text-white mb-3">Email: @Session["Account"]</span>
+                                        <span class="text-white mb-3">Organization: @Session["CompanyOrOrganization"]</span>
+                                        <span class="text-white mb-3">Identity: </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
+                <button type="submit" class="right-menu-btn" onclick="window.location.href='/Home/Logout'" ><i class="bi bi-box-arrow-right"></i></button>
+            }
+            @if (Session["Account"] == null)
+            {
+                <button class="right-menu-btn" type="button" id="login-modal" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-door-open-fill"></i></button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clearInputs()"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="login-container">
+                                    <div class="login-form">
+                                        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "login-sub-form", role = "form", enctype = "multipart/form-data" }))
+                                        {
+                                            <div class="login-title mt-5">
+                                                <h2>Sign in to your account</h2>
+                                            </div>
+                                            <div class="login-upper-form">
+                                                <label>Email address</label> <br>
+                                                <input type="text" name="Email" required=""> <br>
+                                                <label>Password</label> <br>
+                                                <div class="login-input-icons">
+                                                    <i class="bi bi-eye icon" id="togglePassword" onclick="myFunction()"></i>
+                                                    <input class="login-input-field" type="password" name="Password" id="password" required="">
+                                                </div>
+                                                <br>
+                                                <div class="login-page-btn">
+                                                    <button type="submit" id="submit">Log In</button> <br>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" onclick="clearInputs(), resetpwd()" class="btn btn-secondary" data-bs-target="#reset-Pass" data-bs-toggle="modal" data-bs-dismiss="modal">Forgot Password?</button>
+                                <button type="button" onclick="clearInputs(), resetpwd()" class="btn btn-primary" data-bs-target="#register-form" data-bs-toggle="modal" data-bs-dismiss="modal">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="reset-Pass">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="reset-Pass"></h5>
+                                <button type="button"
+                                        class="btn-close"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="forgot-wrapper">
+                                    <div class="forgot-title">
+                                        <h2>Recover your password</h2>
+                                    </div>
+                                    <div class="forgot-body mt-5">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="exampleInputPassword1" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="exampleInputPassword1">
+                                            </div>
+                                            <button type="submit" class="btn btn-secondary">Reset</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary"
+                                        data-bs-target="#exampleModal"
+                                        data-bs-toggle="modal"
+                                        data-bs-dismiss="modal">
+                                    Back to Login
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="register-form" data-bs-theme="auto">
+                    <div class="modal-dialog" style="max-width: 735px;" id="register">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="register-form">
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="register-wrapper">
+
+                                    <div class="register-form">
+                                        @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "register-sub-form", role = "form", enctype = "multipart/form-data" }))
+                                        {
+
+                                            <h2>Registration Form</h2>
+                                            <div class="row row-space">
+                                                <div class="col-6">
+                                                    <div class="input-box">
+                                                        <label>First Name *</label>
+                                                        <input type="text" name="Firstname" placeholder="Please enter your first name" required="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="input-box">
+                                                        <label>Last Name</label>
+                                                        <input type="text" name="Lastname" placeholder="Please enter your last name">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-box">
+                                                <label>Username *</label>
+                                                <input type="text" name="Username" placeholder="Please enter your username">
+                                            </div>
+                                            <div class="input-box">
+                                                <label>Email *</label>
+                                                <input type="email" name="Email" placeholder="Please enter your email address" required="">
+                                            </div>
+                                            <div class="input-box">
+                                                <label>Occupation *</label>
+                                                <input type="text" name="Occupation" placeholder="Please enter your occupation" required="">
+                                            </div>
+                                            <div class="input-box">
+                                                <label>Company / Organization *</label>
+                                                <input type="text" name="CompanyOrOrganization" placeholder="Please enter your company / organization" required="">
+                                            </div>
+                                            <div class="input-box">
+                                                <label>Country</label>
+                                                @*<select class="countrypicker" name="Country"></select>*@
+                                                <input type="text" name="Country"/>
+
+                                            </div>
+                                            <div class="input-box">
+                                                <label>Password *</label>
+                                                <div class="login-input-icons">
+                                                    <i class="bi bi-eye icon" id="togglePassword" onclick="myFunction1()"></i>
+                                                    <input class="login-input-field" type="password" name="Password" id="password1" placeholder="Please enter your password" required="">
+                                                </div>
+                                            </div>
+                                            <div class="input-box">
+                                                <label>Confirm Password *</label>
+                                                <div class="login-input-icons">
+                                                    <i class="bi bi-eye icon" id="togglePassword" onclick="myFunction2()"></i>
+                                                    <input class="login-input-field" type="password" name="Confitmpassword" id="password2" placeholder="Please confirm your password" required="">
+                                                </div>
+                                            </div>
+                                            <div class="register-btn">
+                                                <button type="submit">Register</button>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button onclick="clearInputs(), resetpwd1(), resetpwd2()" class="btn btn-primary"
+                                        data-bs-target="#exampleModal"
+                                        data-bs-toggle="modal"
+                                        data-bs-dismiss="modal">
+                                    Back to Login
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+            
     </nav>
     @RenderBody()
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    <script src="~/Scripts/main.js"></script>
-    <script src="//unpkg.com/bootstrap-select-country@4.0.0/dist/js/bootstrap-select-country.min.js"></script>
-    <script src='https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js'></script>
-    <script src='https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js'></script>
-    <script src='https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js'></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

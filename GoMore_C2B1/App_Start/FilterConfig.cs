@@ -8,6 +8,7 @@ namespace GoMore_C2B1
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new LanguageFilterAttribute());
         }
     }
 }
