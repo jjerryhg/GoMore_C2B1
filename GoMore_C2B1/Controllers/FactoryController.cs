@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using GoMore_C2B1.DataContext;
+using GoMore_C2B1.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,10 +19,24 @@ namespace GoMore_C2B1.Controllers
 {
     public class FactoryController : Controller
     {
+        private ApplicationDbContext FC = new ApplicationDbContext();
         // GET: Factory
         public ActionResult Upload()
         {
-            return View();
+            if (Session["Account"] != null)
+            {
+                string Uploader = Session["Account"].ToString();
+                List<FactoryModel> FCobj = FC.FCM.Where(x => x.Uploader.Equals(Uploader)).ToList();
+                if (FCobj != null)
+                {
+                    return View(FCobj);
+                }
+                TempData["Msg"] = "Get uploaded history fail.";
+                return View();
+
+            }
+            TempData["Msg"] = "Login first!";
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult Parameter()
         {
@@ -28,14 +44,14 @@ namespace GoMore_C2B1.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Client(HttpPostedFileBase file)
+        public async Task<ActionResult> Client(HttpPostedFileBase file,string option)
         {
-
+            FactoryModel factoryModel = new FactoryModel();
             try
             {
                 var jsonValues = new Dictionary<string, string>
                 {
-                    { "option", "test" }
+                    { "option", option }
                 };
                 StringContent sc = new StringContent(JsonConvert.SerializeObject(jsonValues), UnicodeEncoding.UTF8);
 
@@ -46,25 +62,38 @@ namespace GoMore_C2B1.Controllers
                 var fileContent = new StreamContent(file.InputStream);
                 fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("multipart/form-data");
                 mulContent.Add(fileContent, "file", file.FileName);
-                mulContent.Add(sc, "input");
+                mulContent.Add(sc, "input1");
                 await http.PostAsync(url, mulContent);
-                ViewBag.msg = "Post Successful";
+
+                if (ModelState.IsValid)
+                {
+                    Random generator = new Random();
+                    
+                    factoryModel.ID = generator.Next(0, 1000000).ToString("D6");
+                    factoryModel.FileName = file.FileName.Split('.')[0];
+                    factoryModel.UploadTime = DateTime.UtcNow.ToString();
+                    factoryModel.Uploader = Session["Account"].ToString();
+                    factoryModel.FileType = file.FileName.Split('.')[1];
+                    FC.FCM.Add(factoryModel);
+                    FC.SaveChanges();
+                }
+                TempData["Msg"] = "Post Successful";
             }
             catch (Exception)
             {
-                ViewBag.msg = "Post fail";
+                TempData["Msg"] = "Post fail";
             }
 
-            return View();
+            return RedirectToAction("Upload", "Factory");
         }
 
         [HttpPost]
         public async Task RTLabReceiveFile(HttpPostedFileBase file)
         {
 
-            Debug.WriteLine("recevied your file,file name is :" + file.FileName);
+            Console.WriteLine("recevied your file,file name is :" + file.FileName);
 
-            await SaveStream(file.InputStream, @"C:\Users\Administrator\Desktop\FTP", file.FileName);
+            await SaveStream(file.InputStream, @"C:\FCFTP", file.FileName);
 
 
         }

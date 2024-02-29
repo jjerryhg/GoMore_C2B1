@@ -51,6 +51,7 @@ namespace GoMore_C2B1.Controllers
                         managerobj.AccountType = "0";
                         manager.Managers.Add(managerobj);
                         user.SaveChanges();
+                        manager.SaveChanges();
                         TempData["Msg"] = "Register Successful";
                         return RedirectToAction("Index", "Home");
                     }
@@ -85,7 +86,7 @@ namespace GoMore_C2B1.Controllers
                         Session["Firstname"] = user.Firstname;
                         Session["Lastname"] = user.Lastname;
                         Session["CompanyOrOrganization"] = user.CompanyOrOrganization;
-                        if (GetAccountType.AccountType.Equals("1"))
+                        if (GetAccountType != null && GetAccountType.AccountType.Equals("1"))
                         {
                             Session["Identity"] = "Admin";
                             Session["AccountType"] = "1";
@@ -94,6 +95,7 @@ namespace GoMore_C2B1.Controllers
                             Session["Identity"] = "Normal user";
                             Session["AccountType"] = "0";
                         }
+                        TempData["Msg"] = "Welcome " + user.Lastname + " " + user.Firstname + "!";
                         return RedirectToAction("Index", "Home");
                     }
                     else

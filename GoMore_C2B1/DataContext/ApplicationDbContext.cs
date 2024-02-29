@@ -14,5 +14,7 @@ namespace GoMore_C2B1.DataContext
         }
         public virtual DbSet<USERCLASS> USER { get; set; }
         public virtual DbSet<Manager> Managers { get; set; }
+        public virtual DbSet<FactoryModel> FCM { get; set; }
+
     }
 }

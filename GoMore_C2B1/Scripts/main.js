@@ -126,7 +126,7 @@ function toggleSlideMenu() {
     if (menu.style.width === '250px') {
         // If open, close the menu
         menu.style.width = '0px';
-        content.style.marginLeft = '50px';
+        content.style.marginLeft = '0px';
         sidebar.style.marginLeft = '0px';
         menu.style.opacity = '0';
     } else {

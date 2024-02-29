@@ -169,10 +169,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
+    <Compile Include="Controllers\UserModelController.cs" />
     <Compile Include="DataContext\ApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FactoryModel.cs" />
     <Compile Include="Models\LoginView.cs" />
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\RegisterView.cs" />
@@ -289,6 +291,8 @@
     <Content Include="Views\Schedule\Display.cshtml" />
     <Content Include="Scripts\stats.js\LICENSE" />
     <Content Include="Scripts\stats.js\package.json" />
+    <Content Include="Views\UserModel\UserManagement.cshtml" />
+    <Content Include="Views\UserModel\ModelManagement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

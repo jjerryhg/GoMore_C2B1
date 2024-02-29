@@ -7,6 +7,7 @@
     --hover-color: #fff;
     --login-color: #fff;
     --input-color: #Eaeeed;
+    --hover-color: #fff;
 }
 
 [data-theme="dark"] {
@@ -18,6 +19,7 @@
     --hover-color: #555555;
     --login-color: #212529;
     --input-color: #fff;
+    --hover-color: #27292D;
 }
 
 body {
