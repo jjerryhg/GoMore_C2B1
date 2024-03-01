@@ -16,6 +16,7 @@ namespace GoMore_C2B1.Models
         public string UploadTime { get; set; }
         public string Uploader { get; set; }
         public string FileType { get; set; }
+        public string FileConvert2 { get; set; }
     }
 
     public class Files

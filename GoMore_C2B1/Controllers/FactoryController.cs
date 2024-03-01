@@ -76,6 +76,7 @@ namespace GoMore_C2B1.Controllers
                     factoryModel.UploadTime = DateTime.UtcNow.ToString();
                     factoryModel.Uploader = Session["Account"].ToString();
                     factoryModel.FileType = file.FileName.Split('.')[1];
+                    factoryModel.FileConvert2 = option;
                     FC.FCM.Add(factoryModel);
                     FC.SaveChanges();
                 }
@@ -89,29 +90,6 @@ namespace GoMore_C2B1.Controllers
             return RedirectToAction("Upload", "Factory");
         }
 
-        //[HttpGet]
-        //public ActionResult Downloadabc(string FileName,string FileType)
-        //{
-        //    // Get the object used to communicate with the server.
-        //    FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://192.168.1.227/" + "FC/"+ FileName+"."+FileType);
-        //    request.Method = WebRequestMethods.Ftp.DownloadFile;
-
-        //    // This example assumes the FTP site uses anonymous logon.
-        //    request.Credentials = new NetworkCredential("FTPadmin", "Rtlab666");
-
-        //    FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-
-        //    Stream responseStream = response.GetResponseStream();
-        //    StreamReader reader = new StreamReader(responseStream);
-        //    Console.WriteLine(reader.ReadToEnd());
-
-        //    Console.WriteLine($"Download Complete, status {response.StatusDescription}");
-
-        //    reader.Close();
-        //    response.Close();
-
-        //    return RedirectToAction("Upload", "Factory");
-        //}
         [HttpPost]
         public ActionResult Download(string FileName, string FileType)
         {

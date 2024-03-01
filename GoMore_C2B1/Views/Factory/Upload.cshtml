@@ -54,6 +54,7 @@
                                     <th scope="col">Uploaded Date</th>
                                     <th scope="col">Uploader</th>
                                     <th scope="col">File Type</th>
+                                    <th scope="col">File Convert to</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -68,6 +69,7 @@
                                     <td>@item.UploadTime</td>
                                     <td>@item.Uploader</td>
                                     <td>@item.FileType</td>
+                                    <td>@item.FileConvert2</td>
                                     <td style="display: flex; justify-content: space-between">
                                         <form action="~/Factory/Download" method="post">
                                             <input name="FileName" value="@item.FileName" hidden />
