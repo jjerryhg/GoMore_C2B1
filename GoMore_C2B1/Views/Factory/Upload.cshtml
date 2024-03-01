@@ -54,6 +54,7 @@
                                     <th scope="col">Uploaded Date</th>
                                     <th scope="col">Uploader</th>
                                     <th scope="col">File Type</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,13 +62,25 @@
                                 {
                                     foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td>@item.ID</td>
-                                            <td>@item.FileName</td>
-                                            <td>@item.UploadTime</td>
-                                            <td>@item.Uploader</td>
-                                            <td>@item.FileType</td>
-                                        </tr>
+                                <tr>
+                                    <td>@item.ID</td>
+                                    <td>@item.FileName</td>
+                                    <td>@item.UploadTime</td>
+                                    <td>@item.Uploader</td>
+                                    <td>@item.FileType</td>
+                                    <td style="display: flex; justify-content: space-between">
+                                        <form action="~/Factory/Download" method="post">
+                                            <input name="FileName" value="@item.FileName" hidden />
+                                            <input name="FileType" value="@item.FileType" hidden />
+                                            <button type="submit" style="
+                            border: 1px solid var(--font-color);
+                            margin-left: 5px;
+                            padding: 10px 14px;">
+                                                Download
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
                                     }
                                 }
 

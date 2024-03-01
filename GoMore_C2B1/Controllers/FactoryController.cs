@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Sockets;
@@ -14,6 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Ionic.Zip;
 
 namespace GoMore_C2B1.Controllers
 {
@@ -87,13 +89,131 @@ namespace GoMore_C2B1.Controllers
             return RedirectToAction("Upload", "Factory");
         }
 
+        //[HttpGet]
+        //public ActionResult Downloadabc(string FileName,string FileType)
+        //{
+        //    // Get the object used to communicate with the server.
+        //    FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://192.168.1.227/" + "FC/"+ FileName+"."+FileType);
+        //    request.Method = WebRequestMethods.Ftp.DownloadFile;
+
+        //    // This example assumes the FTP site uses anonymous logon.
+        //    request.Credentials = new NetworkCredential("FTPadmin", "Rtlab666");
+
+        //    FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+
+        //    Stream responseStream = response.GetResponseStream();
+        //    StreamReader reader = new StreamReader(responseStream);
+        //    Console.WriteLine(reader.ReadToEnd());
+
+        //    Console.WriteLine($"Download Complete, status {response.StatusDescription}");
+
+        //    reader.Close();
+        //    response.Close();
+
+        //    return RedirectToAction("Upload", "Factory");
+        //}
+        [HttpPost]
+        public ActionResult Download(string FileName, string FileType)
+        {
+
+            //Object_f obj = new Object_f();
+            //string filePath = Server.MapPath("~/App_Start/Json/FTPconfig.json");
+            //StreamReader r = new StreamReader(filePath);
+            //string json = r.ReadToEnd();
+            //var data = (JObject)JsonConvert.DeserializeObject(json);
+            string ftp = "ftp://192.168.1.227/";
+            string ftpUserName = "FTPadmin";
+            string ftpPassword = "Rtlab666";
+            string ftpMainFolder = "FC";
+
+            string Foldername = "";
+            List<Files> fileList = CreateZipFile(ftp, ftpUserName, ftpPassword, ftpMainFolder, Foldername);
+            if (fileList.Count >= 1)
+            {
+                using (ZipFile zip = new ZipFile())
+                {
+                    zip.AlternateEncodingUsage = ZipOption.AsNecessary;
+                    foreach (Files file in fileList)
+                    {
+                        zip.AddEntry(file.FileName, file.Bytes);
+                    }
+
+                    Response.Clear();
+                    Response.BufferOutput = false;
+                    string zipName = String.Format("{0}.zip", FileName);
+                    Response.ContentType = "application/zip";
+                    Response.AddHeader("content-disposition", "attachment; filename=" + zipName);
+                    zip.Save(Response.OutputStream);
+                    Response.End();
+                }
+            }
+            else
+            {
+                TempData["error"] = "Download Fail,Please Contact us!";
+            }
+
+            return RedirectToAction("Upload", "Factory");
+        }
+        public List<string> CreateFTPList(string ftp, string ftpUserName, string ftpPassword, string ftpMainFolder, string Foldername)
+        {
+            // Get the object used to communicate with the server.
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftp + ftpMainFolder + Foldername);
+            request.Method = WebRequestMethods.Ftp.ListDirectory;
+
+            // This example assumes the FTP site uses anonymous logon.
+            request.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
+
+            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+            Stream responseStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(responseStream);
+            string names = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+            List<string> source = names.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            return source;
+        }
+        public List<Files> CreateZipFile(string ftp, string ftpUserName, string ftpPassword, string ftpMainFolder, string Foldername)
+        {
+            List<Files> fileList = new List<Files>();
+            foreach (string file in CreateFTPList(ftp, ftpUserName, ftpPassword, ftpMainFolder, Foldername))
+            {
+                if (file.Equals("Specification"))
+                {
+                    string ftpFolder_t = ftpMainFolder + Foldername + "/";
+                    string Foldername_t = "Specification";
+                    foreach (string file_t in CreateFTPList(ftp, ftpUserName, ftpPassword, ftpFolder_t, Foldername_t))
+                    {
+
+                        WebClient request_T = new WebClient();
+                        string url = ftp + ftpFolder_t + Foldername_t + "/" + file_t;
+                        request_T.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
+                        byte[] bytes = request_T.DownloadData(url);
+                        fileList.Add(new Files() { FileName = file_t, Bytes = bytes, gvFiles = url });
+
+                    }
+                }
+                else
+                {
+
+                    WebClient request = new WebClient();
+                    string url_ = ftp + ftpMainFolder + Foldername + "/" + file;
+                    request.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
+                    byte[] bytes_ = request.DownloadData(url_);
+                    fileList.Add(new Files() { FileName = file, Bytes = bytes_, gvFiles = url_ });
+
+                }
+            }
+            return fileList;
+        }
+
         [HttpPost]
         public async Task RTLabReceiveFile(HttpPostedFileBase file)
         {
 
             Console.WriteLine("recevied your file,file name is :" + file.FileName);
 
-            await SaveStream(file.InputStream, @"C:\FCFTP", file.FileName);
+            await SaveStream(file.InputStream, @"C:\FTP\FC", file.FileName);
 
 
         }

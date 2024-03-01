@@ -17,4 +17,13 @@ namespace GoMore_C2B1.Models
         public string Uploader { get; set; }
         public string FileType { get; set; }
     }
+
+    public class Files
+    {
+        public string FileName { get; set; }
+        public byte[] Bytes { get; set; }
+        public string gvFiles { get; set; }
+
+    }
+
 }
