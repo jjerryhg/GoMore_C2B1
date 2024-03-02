@@ -191,16 +191,16 @@
                 <div class="modal fade" id="profileModal" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <div class="modal-body" style="background-color: yellow;">
+                            <div class="modal-body" style="background-color: #01356B;">
                                 <button type="button" class="btn-close position-absolute mt-1 me-1 top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
-                                <div class="top-profile mt-2 p-5 d-flex justify-content-center">
+                                @*<div class="top-profile mt-2 p-5 d-flex justify-content-center">
                                     <div class="image d-flex flex-column justify-content-center align-items-center">
                                         <button class="btn btn-secondary">
                                             <img src="#" height="100" width="100" />
                                         </button>
-                                        @*<span class="name mt-3">專案數量: 50</span>*@
+                                        <span class="name mt-3">專案數量: 50</span>
                                     </div>
-                                </div>
+                                </div>*@
                             </div>
                             <div class="modal-body" style="background-color: #01356B;">
                                 <div class="d-flex justify-content-center text-center ">
@@ -227,7 +227,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clearInputs()"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clearInputs(), resetToggleIcon()"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="login-container">
@@ -235,19 +235,21 @@
                                         @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "login-sub-form", role = "form", enctype = "multipart/form-data" }))
                                         {
                                             <div class="login-title mt-5">
-                                                <h2>Sign in to your account</h2>
+                                                <h2>@Resource.SignInAcc</h2>
                                             </div>
                                             <div class="login-upper-form">
-                                                <label>Email address</label> <br>
-                                                <input type="text" name="Email" required=""> <br>
-                                                <label>Password</label> <br>
-                                                <div class="login-input-icons">
-                                                    <i class="bi bi-eye icon" id="togglePassword" onclick="myFunction()"></i>
-                                                    <input class="login-input-field" type="password" name="Password" id="password" required="">
-                                                </div>
+                                                <label>@Resource.Email </label> <br>
+                                                <input type="text" name="Email" required="" placeholder="@Resource.EmailPlaceholder"> <br>
+                                                <label>@Resource.Password</label> <br>
+                                                    <div class="login-input-icons">
+                                                        <input class="login-input-field" type="password" name="Password" id="password" required="" placeholder="@Resource.PasswordPlaceholder">
+                                                        <span onclick="togglePasswordVisibility()">
+                                                            <i class="bi bi-eye input-icon" id="toggleIcon"></i>
+                                                        </span>
+                                                    </div>
                                                 <br>
                                                 <div class="login-page-btn">
-                                                    <button type="submit" id="submit">Log In</button> <br>
+                                                    <button type="submit" id="submit">@Resource.Login</button> <br>
                                                 </div>
                                             </div>
                                         }
@@ -255,8 +257,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" onclick="clearInputs(), resetpwd()" class="btn btn-secondary" data-bs-target="#reset-Pass" data-bs-toggle="modal" data-bs-dismiss="modal">Forgot Password?</button>
-                                <button type="button" onclick="clearInputs(), resetpwd()" class="btn btn-primary" data-bs-target="#register-form" data-bs-toggle="modal" data-bs-dismiss="modal">Register</button>
+                                <button type="button" onclick="clearInputs(), resetpwd(), resetToggleIcon()" class="btn btn-secondary" data-bs-target="#reset-Pass" data-bs-toggle="modal" data-bs-dismiss="modal">@Resource.ForgotPassword?</button>
+                                <button type="button" onclick="clearInputs(), resetpwd(), resetToggleIcon()" class="btn btn-primary" data-bs-target="#register-form" data-bs-toggle="modal" data-bs-dismiss="modal">@Resource.Register</button>
                             </div>
                         </div>
                     </div>
@@ -275,15 +277,15 @@
                             <div class="modal-body">
                                 <div class="forgot-wrapper">
                                     <div class="forgot-title">
-                                        <h2>Recover your password</h2>
+                                        <h2>@Resource.RecoverPassword</h2>
                                     </div>
                                     <div class="forgot-body mt-5">
                                         <form>
                                             <div class="mb-3">
-                                                <label for="exampleInputPassword1" class="form-label">Email</label>
+                                                <label for="exampleInputPassword1" class="form-label">@Resource.Email</label>
                                                 <input type="email" class="form-control" id="exampleInputPassword1">
                                             </div>
-                                            <button type="submit" class="btn btn-secondary">Reset</button>
+                                            <button type="submit" class="btn btn-secondary">@Resource.Reset</button>
                                         </form>
                                     </div>
                                 </div>
@@ -293,7 +295,7 @@
                                         data-bs-target="#exampleModal"
                                         data-bs-toggle="modal"
                                         data-bs-dismiss="modal">
-                                    Back to Login
+                                    @Resource.BackToLogin
                                 </button>
                             </div>
                         </div>
@@ -315,121 +317,120 @@
                                         @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "register-sub-form", role = "form", enctype = "multipart/form-data" }))
                                         {
 
-                                            <h2>Registration Form</h2>
+                                            <h2>@Resource.RegisterAccount</h2>
                                             <div class="row row-space">
                                                 <div class="col-6">
                                                     <div class="input-box">
-                                                        <label>First Name *</label>
-                                                        <input type="text" name="Firstname" placeholder="Please enter your first name" required="">
+                                                        <label>@Resource.FirstName *</label>
+                                                        <input type="text" name="Firstname" placeholder="@Resource.FirstNamePlaceholder" required="">
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="input-box">
-                                                        <label>Last Name</label>
-                                                        <input type="text" name="Lastname" placeholder="Please enter your last name">
+                                                        <label>@Resource.LastName *</label>
+                                                        <input type="text" name="Lastname" placeholder="@Resource.LastNamePlaceholder">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="input-box">
-                                                <label>Username *</label>
-                                                <input type="text" name="Username" placeholder="Please enter your username">
+                                                <label>@Resource.Username *</label>
+                                                <input type="text" name="Username" placeholder="@Resource.UsernamePlaceholder">
                                             </div>
                                             <div class="input-box">
-                                                <label>Email *</label>
-                                                <input type="email" name="Email" placeholder="Please enter your email address" required="">
+                                                <label>@Resource.Email *</label>
+                                                <input type="email" name="Email" placeholder="@Resource.EmailPlaceholder" required="">
                                             </div>
                                             <div class="input-box">
-                                                <label>Occupation *</label>
-                                                <input type="text" name="Occupation" placeholder="Please enter your occupation" required="">
+                                                <label>@Resource.Occupation *</label>
+                                                <input type="text" name="Occupation" placeholder="@Resource.OccupationPlaceholder" required="">
                                             </div>
                                             <div class="input-box">
-                                                <label>Company / Organization *</label>
-                                                <input type="text" name="CompanyOrOrganization" placeholder="Please enter your company / organization" required="">
+                                                <label>@Resource.CompanyOrganization *</label>
+                                                <input type="text" name="CompanyOrOrganization" placeholder="@Resource.CompanyOrganizationPlaceholder" required="">
                                             </div>
                                             <div class="input-box">
-                                                <label>Country</label>
+                                                <label>@Resource.Country</label>
                                                 <select class="countrypicker" name="Country">
-                                                    <option value="">Please choose your country</option>
-                                                    <option value="AF">Afghanistan</option>
-                                                    <option value="AL">Albania</option>
-                                                    <option value="DZ">Algeria</option>
-                                                    <option value="AS">American Samoa</option>
-                                                    <option value="AD">Andorra</option>
-                                                    <option value="AG">Angola</option>
-                                                    <option value="AI">Anguilla</option>
-                                                    <option value="AG">Antigua &amp; Barbuda</option>
-                                                    <option value="AR">Argentina</option>
-                                                    <option value="AA">Armenia</option>
-                                                    <option value="AW">Aruba</option>
-                                                    <option value="AU">Australia</option>
-                                                    <option value="AT">Austria</option>
-                                                    <option value="AZ">Azerbaijan</option>
-                                                    <option value="BS">Bahamas</option>
-                                                    <option value="BH">Bahrain</option>
-                                                    <option value="BD">Bangladesh</option>
-                                                    <option value="BB">Barbados</option>
-                                                    <option value="BY">Belarus</option>
-                                                    <option value="BE">Belgium</option>
-                                                    <option value="BZ">Belize</option>
-                                                    <option value="BJ">Benin</option>
-                                                    <option value="BM">Bermuda</option>
-                                                    <option value="BT">Bhutan</option>
-                                                    <option value="BO">Bolivia</option>
-                                                    <option value="BL">Bonaire</option>
-                                                    <option value="BA">Bosnia &amp; Herzegovina</option>
-                                                    <option value="BW">Botswana</option>
-                                                    <option value="BR">Brazil</option>
-                                                    <option value="BC">British Indian Ocean Ter</option>
-                                                    <option value="BN">Brunei</option>
-                                                    <option value="BG">Bulgaria</option>
-                                                    <option value="BF">Burkina Faso</option>
-                                                    <option value="BI">Burundi</option>
-                                                    <option value="KH">Cambodia</option>
-                                                    <option value="CM">Cameroon</option>
-                                                    <option value="CA">Canada</option>
-                                                    <option value="IC">Canary Islands</option>
-                                                    <option value="CV">Cape Verde</option>
-                                                    <option value="KY">Cayman Islands</option>
-                                                    <option value="CF">Central African Republic</option>
-                                                    <option value="TD">Chad</option>
-                                                    <option value="CD">Channel Islands</option>
-                                                    <option value="CL">Chile</option>
-                                                    <option value="CN">China</option>
-                                                    <option value="CI">Christmas Island</option>
-                                                    <option value="CS">Cocos Island</option>
-                                                    <option value="CO">Colombia</option>
-                                                    <option value="CC">Comoros</option>
-                                                    <option value="CG">Congo</option>
-                                                    <option value="CK">Cook Islands</option>
-                                                    <option value="CR">Costa Rica</option>
-                                                    <option value="CT">Cote D'Ivoire</option>
-                                                    <option value="HR">Croatia</option>
-                                                    <option value="CU">Cuba</option>
-                                                    <option value="CB">Curacao</option>
-                                                    <option value="CY">Cyprus</option>
-                                                    <option value="CZ">Czech Republic</option>
-                                                    <option value="DK">Denmark</option>
-                                                    <option value="DJ">Djibouti</option>
-                                                    <option value="DM">Dominica</option>
-                                                    <option value="DO">Dominican Republic</option>
-                                                    <option value="TM">East Timor</option>
-                                                    <option value="EC">Ecuador</option>
-                                                    <option value="EG">Egypt</option>
-                                                    <option value="SV">El Salvador</option>
-                                                    <option value="GQ">Equatorial Guinea</option>
-                                                    <option value="ER">Eritrea</option>
-                                                    <option value="EE">Estonia</option>
-                                                    <option value="ET">Ethiopia</option>
-                                                    <option value="FA">Falkland Islands</option>
-                                                    <option value="FO">Faroe Islands</option>
-                                                    <option value="FJ">Fiji</option>
-                                                    <option value="FI">Finland</option>
-                                                    <option value="FR">France</option>
-                                                    <option value="GF">French Guiana</option>
-                                                    <option value="PF">French Polynesia</option>
-                                                    <option value="FS">French Southern Ter</option>
-                                                    <option value="GA">Gabon</option>
-                                                    <option value="GM">Gambia</option>
+                                                    <option value="">@Resource.ChooseCountry</option>
+                                                    <option value="AF">@Resource.Afghanistan</option>
+                                                    <option value="AL">@Resource.Albania</option>
+                                                    <option value="DZ">@Resource.Algeria</option>
+                                                    <option value="AS">@Resource.AmericanSamoa</option>
+                                                    <option value="AD">@Resource.Andorra</option>
+                                                    <option value="AG">@Resource.Angola</option>
+                                                    <option value="AI">@Resource.Anguilla</option>
+                                                    <option value="AG">@Resource.AntiguaBarbuda</option>
+                                                    <option value="AR">@Resource.Argentina</option>
+                                                    <option value="AA">@Resource.Armenia</option>
+                                                    <option value="AW">@Resource.Aruba</option>
+                                                    <option value="AU">@Resource.Australia</option>
+                                                    <option value="AT">@Resource.Austria</option>
+                                                    <option value="AZ">@Resource.Azerbaijan</option>
+                                                    <option value="BS">@Resource.Bahamas</option>
+                                                    <option value="BH">@Resource.Bahrain</option>
+                                                    <option value="BD">@Resource.Bangladesh</option>
+                                                    <option value="BB">@Resource.Barbados</option>
+                                                    <option value="BY">@Resource.Belarus</option>
+                                                    <option value="BE">@Resource.Belgium</option>
+                                                    <option value="BZ">@Resource.Belize</option>
+                                                    <option value="BJ">@Resource.Benin</option>
+                                                    <option value="BM">@Resource.Bermuda</option>
+                                                    <option value="BT">@Resource.Bhutan</option>
+                                                    <option value="BO">@Resource.Bolivia</option>
+                                                    <option value="BL">@Resource.Bonaire</option>
+                                                    <option value="BA">@Resource.Bosnia</option>
+                                                    <option value="BW">@Resource.Botswana</option>
+                                                    <option value="BR">@Resource.Brazil</option>
+                                                    <option value="BC">@Resource.British</option>
+                                                    <option value="BN">@Resource.Brunei</option>
+                                                    <option value="BG">@Resource.Bulgaria</option>
+                                                    <option value="BF">@Resource.BurkinaFaso</option>
+                                                    <option value="BI">@Resource.Burundi</option>
+                                                    <option value="KH">@Resource.Cambodia</option>
+                                                    <option value="CM">@Resource.Cameroon</option>
+                                                    <option value="CA">@Resource.Canada</option>
+                                                    <option value="IC">@Resource.CanaryIslands</option>
+                                                    <option value="CV">@Resource.CapeVerde</option>
+                                                    <option value="CF">@Resource.CentralAfricanRepublic</option>
+                                                    <option value="TD">@Resource.Chad</option>
+                                                    <option value="CD">@Resource.ChannelIslands</option>
+                                                    <option value="CL">@Resource.Chile</option>
+                                                    <option value="CN">@Resource.China</option>
+                                                    <option value="CI">@Resource.ChristmasIsland</option>
+                                                    <option value="CS">@Resource.CocosIsland</option>
+                                                    <option value="CO">@Resource.Colombia</option>
+                                                    <option value="CC">@Resource.Comoros</option>
+                                                    <option value="CG">@Resource.Congo</option>
+                                                    <option value="CK">@Resource.CookIslands</option>
+                                                    <option value="CR">@Resource.CostaRica</option>
+                                                    <option value="CT">@Resource.CoteDIvoire</option>
+                                                    <option value="HR">@Resource.Croatia</option>
+                                                    <option value="CU">@Resource.Cuba</option>
+                                                    <option value="CB">@Resource.Curacao</option>
+                                                    <option value="CY">@Resource.Cyprus</option>
+                                                    <option value="CZ">@Resource.CzechRepublic</option>
+                                                    <option value="DK">@Resource.Denmark</option>
+                                                    <option value="DJ">@Resource.Djibouti</option>
+                                                    <option value="DM">@Resource.Dominica</option>
+                                                    <option value="DO">@Resource.DominicanRepublic</option>
+                                                    <option value="TM">@Resource.EastTimor</option>
+                                                    <option value="EC">@Resource.Ecuador</option>
+                                                    <option value="EG">@Resource.Egypt</option>
+                                                    <option value="SV">@Resource.ElSalvador</option>
+                                                    <option value="GQ">@Resource.EquatorialGuinea</option>
+                                                    <option value="ER">@Resource.Eritrea</option>
+                                                    <option value="EE">@Resource.Estonia</option>
+                                                    <option value="ET">@Resource.Ethiopia</option>
+                                                    <option value="FA">@Resource.FalklandIslands</option>
+                                                    <option value="FO">@Resource.FaroeIslands</option>
+                                                    <option value="FJ">@Resource.Fiji</option>
+                                                    <option value="FI">@Resource.Finland</option>
+                                                    <option value="FR">@Resource.France</option>
+                                                    <option value="GF">@Resource.FrenchGuiana</option>
+                                                    <option value="PF">@Resource.FrenchPolynesia</option>
+                                                    <option value="FS">@Resource.FrenchSouthernTer</option>
+                                                    <option value="GA">@Resource.Gabon</option>
+                                                    <option value="GM">@Resource.Gambia</option>
                                                     <option value="GE">Georgia</option>
                                                     <option value="DE">Germany</option>
                                                     <option value="GH">Ghana</option>
@@ -602,21 +603,35 @@
 
                                             </div>
                                             <div class="input-box">
-                                                <label>Password *</label>
-                                                <div class="login-input-icons">
-                                                    <i class="bi bi-eye icon" id="togglePassword" onclick="myFunction1()"></i>
-                                                    <input class="login-input-field" type="password" name="Password" id="password1" placeholder="Please enter your password" required="">
+                                                <label>@Resource.Password *</label>
+                                                <div class="login-input-icons" >
+                                                    <input class="login-input-field" type="password" name="Password" id="password1" required="" placeholder="@Resource.PasswordPlaceholder">
+                                                    <span onclick="togglePasswordVisibility1()">
+                                                        <i class="bi bi-eye input-icon" id="toggleIcon1"></i>
+                                                    </span>
+                                                </div>
+                                                <div id="passwordRequirements">
+                                                    <p>@Resource.PasswordRequirements:</p>
+                                                    <ul>
+                                                        <li>@Resource.minimum8char</li>
+                                                        <li>@Resource.OneUppercaseLetter</li>
+                                                        <li>@Resource.OneLowercaseLetter</li>
+                                                        <li>@Resource.OneDigit</li>
+                                                        <li>@Resource.OneSpecialChar</li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                             <div class="input-box">
-                                                <label>Confirm Password *</label>
+                                                <label>@Resource.ConfirmPassword *</label>
                                                 <div class="login-input-icons">
-                                                    <i class="bi bi-eye icon" id="togglePassword" onclick="myFunction2()"></i>
-                                                    <input class="login-input-field" type="password" name="Confitmpassword" id="password2" placeholder="Please confirm your password" required="">
+                                                    <input class="login-input-field" type="password" name="Password" id="password2" required="" placeholder="@Resource.ConfirmPasswordPlaceholder">
+                                                    <span onclick="togglePasswordVisibility2()">
+                                                        <i class="bi bi-eye input-icon" id="toggleIcon2"></i>
+                                                    </span>
                                                 </div>
                                             </div>
                                             <div class="register-btn">
-                                                <button type="submit">Register</button>
+                                                <button type="submit">@Resource.Register</button>
                                             </div>
                                         }
                                     </div>
@@ -624,11 +639,11 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button onclick="clearInputs(), resetpwd1(), resetpwd2()" class="btn btn-primary"
+                                <button onclick="clearInputs(), resetpwd1(), resetpwd2(), resetToggleIcon()" class="btn btn-primary"
                                         data-bs-target="#exampleModal"
                                         data-bs-toggle="modal"
                                         data-bs-dismiss="modal">
-                                    Back to Login
+                                    @Resource.BackToLogin
                                 </button>
                             </div>
                         </div>

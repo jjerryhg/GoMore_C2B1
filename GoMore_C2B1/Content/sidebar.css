@@ -14,7 +14,7 @@
     .sidebar a {
         display: block;
         padding: 20px 30px;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 500;
         text-decoration: none;
         color: black;
@@ -24,10 +24,13 @@
     padding-top: 30px;
 }
 
+.sidebar-content a{
+    align-items: center;
+}
+
     .sidebar-content a:hover {
         background-color: var(--hover-color);
-        border-start-start-radius: 25px;
-        border-end-start-radius: 25px;
+        margin-left: 10px;
         cursor: pointer;
     }
 
@@ -45,19 +48,18 @@
         background-color: transparent;
         border: none;
         padding: 20px 30px;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 500;
         color: var(--font-color);
         display: flex;
         justify-content: flex-start;
-        margin-left: 3px;
+        margin-left: 0px;
         align-items: center;
     }
 
         .dropdown-wrapper button:hover {
             background-color: var(--hover-color);
-            border-start-start-radius: 25px;
-            border-end-start-radius: 25px;
+            margin-left: 10px;
             cursor: pointer;
         }
 
@@ -77,14 +79,13 @@
     .dropdown-menu a {
         padding: 20px 20px;
         font-weight: 500;
-        font-size: 18px;
+        font-size: 16px;
         margin-left: 15px;
     }
 
         .dropdown-menu a:hover {
             background-color: var(--hover-color);
-            border-start-start-radius: 25px;
-            border-end-start-radius: 25px;
+            margin-left: 10px;
             cursor: pointer;
         }
 

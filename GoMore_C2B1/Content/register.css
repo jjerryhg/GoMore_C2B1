@@ -78,3 +78,7 @@
     color: #fff;
     border-radius: 5px;
 }
+
+.input-icon#toggleIcon1, .input-icon#toggleIcon2 {
+    top: 16px;
+}

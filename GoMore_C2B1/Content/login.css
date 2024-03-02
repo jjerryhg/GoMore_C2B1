@@ -66,12 +66,23 @@
 .login-input-icons {
     width: 100%;
     margin-bottom: 10px;
-    position: relative;
     z-index: 99;
+    position: relative;
 }
 
 .login-input-field {
     width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    z-index: 99;
+}
+
+.input-icon:hover {
+    cursor: pointer;
 }
 
 .login-form button#submit {
@@ -118,6 +129,21 @@
     .login-signup:hover {
         opacity: 0.8;
     }
+
+#passwordRequirements {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+}
+
+#passwordRequirements ul {
+    list-style-type: disc;
+    margin: 10px 0 0 20px;
+}
+
+#passwordRequirements p {
+    margin: 10px 0 0 18px;
+}
 
 .profile-close-btn {
     font-size: 20px;

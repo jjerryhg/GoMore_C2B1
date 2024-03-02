@@ -1,7 +1,7 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ModelManagement";
 }
+@using GoMore_C2B1.Resource;
 
 @Styles.Render("~/Content/main")
 @Styles.Render("~/Content/DarkMode")
@@ -9,7 +9,7 @@
 <div id="content" style="margin-left: 0px; margin-top: 0px;">
     <div class="user-wrapper">
         <div class="user-header">
-            <h2>Model Management</h2>
+            <h2>@Resource.Modelmanager</h2>
             <div style="display: flex; align-items: center;">
                 <button class="add-userbtn" data-toggle="modal" data-target="#AddUserModal">Add Model</button>
             </div>
@@ -96,8 +96,8 @@
                     </a>
                 </li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                @*<li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>*@
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>

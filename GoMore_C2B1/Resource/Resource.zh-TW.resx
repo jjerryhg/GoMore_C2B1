@@ -118,4 +118,115 @@
   <data name="Modelmanager" xml:space="preserve">
     <value>模型管理</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>電子郵件</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>行動</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>權限</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>下一個</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>上一個</value>
+  </data>
+  <data name="SignInAcc" xml:space="preserve">
+    <value>登入您的帳戶</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密碼</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>忘記密碼</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>注冊</value>
+  </data>
+  <data name="EmailPlaceholder" xml:space="preserve">
+    <value>請輸入您的電子郵件地址</value>
+  </data>
+  <data name="PasswordPlaceholder" xml:space="preserve">
+    <value>請輸入您的密碼</value>
+  </data>
+  <data name="RegisterAccount" xml:space="preserve">
+    <value>注冊您的帳戶</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>姓</value>
+  </data>
+  <data name="ChooseCountry" xml:space="preserve">
+    <value>請選擇你所在的國家</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>使用者名稱</value>
+  </data>
+  <data name="Occupation" xml:space="preserve">
+    <value>職業</value>
+  </data>
+  <data name="CompanyOrganization" xml:space="preserve">
+    <value>公司 / 組織</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>國家</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>確認密碼</value>
+  </data>
+  <data name="FirstNamePlaceholder" xml:space="preserve">
+    <value>請輸入您的名字</value>
+  </data>
+  <data name="LastNamePlaceholder" xml:space="preserve">
+    <value>請輸入您的姓氏</value>
+  </data>
+  <data name="UsernamePlaceholder" xml:space="preserve">
+    <value>請輸入您的用戶名</value>
+  </data>
+  <data name="OccupationPlaceholder" xml:space="preserve">
+    <value>請輸入您的職業</value>
+  </data>
+  <data name="CompanyOrganizationPlaceholder" xml:space="preserve">
+    <value>請輸入您的公司/組織</value>
+  </data>
+  <data name="ConfirmPasswordPlaceholder" xml:space="preserve">
+    <value>請確認您的密碼</value>
+  </data>
+  <data name="Afghanistan" xml:space="preserve">
+    <value>阿富汗</value>
+  </data>
+  <data name="PasswordRequirements" xml:space="preserve">
+    <value>密碼要求</value>
+  </data>
+  <data name="minimum8char" xml:space="preserve">
+    <value>至少8個字符</value>
+  </data>
+  <data name="OneUppercaseLetter" xml:space="preserve">
+    <value>至少有一個大寫字母</value>
+  </data>
+  <data name="OneLowercaseLetter" xml:space="preserve">
+    <value>至少有一個小寫字母</value>
+  </data>
+  <data name="OneSpecialChar" xml:space="preserve">
+    <value>至少有一個特殊字符</value>
+  </data>
+  <data name="OneDigit" xml:space="preserve">
+    <value>至少有一個數字</value>
+  </data>
+  <data name="RecoverPassword" xml:space="preserve">
+    <value>恢復您的密碼</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="BackToLogin" xml:space="preserve">
+    <value>回到登入</value>
+  </data>
 </root>

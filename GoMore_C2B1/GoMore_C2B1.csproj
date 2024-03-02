@@ -213,6 +213,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\color.css" />
+    <Content Include="Content\home.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\register.css" />
@@ -277,6 +278,11 @@
     <Content Include="Scripts\stats.js\build\stats.min.js" />
     <Content Include="Scripts\stats.js\src\Stats.js" />
     <Content Include="Scripts\upload.js" />
+    <Content Include="test-1.jpg" />
+    <Content Include="test-2.jpg" />
+    <Content Include="test-3.jpg" />
+    <Content Include="test-4.jpg" />
+    <Content Include="test-5.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -316,7 +322,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource\Resource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource\Resource.zh-CN.resx" />

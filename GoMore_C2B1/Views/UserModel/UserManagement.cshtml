@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "UserManagement";
 }
+@using GoMore_C2B1.Resource;
 
 @Styles.Render("~/Content/main")
 @Styles.Render("~/Content/DarkMode")
@@ -9,22 +10,22 @@
 <div id="content" style="margin-left: 0px; margin-top: 0px;">
     <div class="user-wrapper">
         <div class="user-header">
-            <h2>User Management</h2>
+            <h2>@Resource.Accountmanager</h2>
             @*<div style="display: flex; align-items: center;">
-                <button class="add-userbtn" data-toggle="modal" data-target="#AddUserModal">Add User</button>
-            </div>*@
+                    <button class="add-userbtn" data-toggle="modal" data-target="#AddUserModal">Add User</button>
+                </div>*@
         </div>
         <div class="user-body">
             <table class="table table-striped table-bordered" id="userTable">
                 <thead>
                     <tr>
                         @*<th scope="col">Id</th>*@
-                        <th scope="col">Email</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">@Resource.Email</th>
+                        <th scope="col">@Resource.Role</th>
+                        <th scope="col">@Resource.Action</th>
                     </tr>
                 </thead>
-                
+
                 <tbody>
                     @foreach (var item in Model)
                     {
@@ -52,7 +53,7 @@
                             </td>
                         </tr>
                     }
-                    </tbody>
+                </tbody>
             </table>
             <ul class="pagination justify-content-center" id="UserManagementpagination">
                 <li class="page-item">
@@ -61,8 +62,8 @@
                     </a>
                 </li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                @*<li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>*@
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
@@ -115,11 +116,11 @@
 
                 </div>
             </div>-->
-            @*<div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>*@
-        <!--</div>
+@*<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+    </div>*@
+<!--</div>
     </div>
 </div>-->
 

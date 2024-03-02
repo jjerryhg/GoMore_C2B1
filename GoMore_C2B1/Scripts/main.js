@@ -1,26 +1,55 @@
-﻿function myFunction() {
-    var x = document.getElementById("password");
-    if (x.type === "password") {
-        x.type = "text";
+﻿function togglePasswordVisibility() {
+    const passwordField = document.getElementById("password");
+    const toggleIcon = document.getElementById("toggleIcon");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        toggleIcon.classList.remove("bi-eye");
+        toggleIcon.classList.add("bi-eye-slash");
     } else {
-        x.type = "password";
-    };
+        passwordField.type = "password";
+        toggleIcon.classList.remove("bi-eye-slash");
+        toggleIcon.classList.add("bi-eye");
+    }
 }
-function myFunction1() {
-    var x = document.getElementById("password1");
-    if (x.type === "password") {
-        x.type = "text";
+
+function togglePasswordVisibility1() {
+    const passwordField = document.getElementById("password1");
+    const toggleIcon = document.getElementById("toggleIcon1");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        toggleIcon.classList.remove("bi-eye");
+        toggleIcon.classList.add("bi-eye-slash");
     } else {
-        x.type = "password";
-    };
+        passwordField.type = "password";
+        toggleIcon.classList.remove("bi-eye-slash");
+        toggleIcon.classList.add("bi-eye");
+    }
 }
-function myFunction2() {
-    var x = document.getElementById("password2");
-    if (x.type === "password") {
-        x.type = "text";
+function togglePasswordVisibility2() {
+    const passwordField = document.getElementById("password2");
+    const toggleIcon = document.getElementById("toggleIcon2");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        toggleIcon.classList.remove("bi-eye");
+        toggleIcon.classList.add("bi-eye-slash");
     } else {
-        x.type = "password";
-    };
+        passwordField.type = "password";
+        toggleIcon.classList.remove("bi-eye-slash");
+        toggleIcon.classList.add("bi-eye");
+    }
+}
+function resetToggleIcon() {
+    const toggleIcon = document.getElementById("toggleIcon");
+    const passwordField = document.getElementById("password");
+
+    // Reset to bi-eye icon and password type
+    isPasswordVisible = false;
+    toggleIcon.classList.remove("bi-eye-slash");
+    toggleIcon.classList.add("bi-eye");
+    passwordField.type = "password";
 }
 function clearInputs() {
     var inputs = document.querySelectorAll('form input')
@@ -56,6 +85,32 @@ function resetpwd2() {
         inputField.type = 'password';
     }
 }
+
+const passwordInput = document.getElementById('password1');
+const passwordRequirements = document.getElementById('passwordRequirements');
+
+//passwordInput.addEventListener('input', function () {
+//    const password = passwordInput.value;
+
+//    // Password requirements
+//    const minLength = 8;
+//    const hasUpperCase = /[A-Z]/.test(password);
+//    const hasLowerCase = /[a-z]/.test(password);
+//    const hasDigit = /\d/.test(password);
+
+//    // Check if password meets requirements
+//    const isPasswordValid = password.length >= minLength && hasUpperCase && hasLowerCase && hasDigit;
+
+//    // Display feedback
+//    if (isPasswordValid) {
+//        passwordRequirements.style.color = 'green';
+//        passwordRequirements.textContent = 'Password meets requirements';
+//    } else {
+//        passwordRequirements.style.color = 'red';
+//        passwordRequirements.textContent = 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.';
+//    }
+//});
+
 function changeLanguage(lang) {
     $.ajax({
         url: '../Home/ChangeLanguage',
@@ -132,7 +187,7 @@ function toggleSlideMenu() {
     } else {
         // If closed, open the menu
         menu.style.width = '250px';
-        content.style.marginLeft = '260px';
+        content.style.marginLeft = '250px';
         sidebar.style.marginLeft = '250px';
         menu.style.opacity = '1';
 

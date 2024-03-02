@@ -179,9 +179,7 @@
     const stats = new Stats();
     stats.showPanel(2);
     document.body.append(stats.dom);
-    stats.dom.style.position = 'fixed';
-    stats.dom.style.top = '60px';
-    stats.dom.style.right = '0';
+    stats.dom.style.left = '0';
     //const renderer = components.renderer;
     renderer.onBeforeUpdate.add(() => stats.begin());
     renderer.onAfterUpdate.add(() => stats.end());
