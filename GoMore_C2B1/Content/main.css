@@ -575,6 +575,7 @@ html {
             text-align: center;
             font-size: 8px;
             color: #ffff;
+            line-height: 1;
         }
 
     .guide-close-btn {
@@ -596,10 +597,6 @@ html {
             cursor: pointer;
             font-size: 14px;
         }
-
-    .modal-dialog#login {
-        height: 100px
-    }
 
     .library-body {
         padding: 20px 0 20px 0;
@@ -658,6 +655,7 @@ html {
             text-align: center;
             font-size: 8px;
             color: #ffff;
+            line-height: 1.5;
         }
 
     .guide-close-btn {
@@ -679,10 +677,6 @@ html {
             cursor: pointer;
             font-size: 14px;
         }
-
-    .modal-dialog#login {
-        height: 100px
-    }
 
     .library-body {
         padding: 20px 0 20px 0;
@@ -740,6 +734,7 @@ html {
             text-align: center;
             font-size: 10px;
             color: #ffff;
+            line-height: 1.8;
         }
 
     .guide-close-btn {
@@ -812,6 +807,7 @@ html {
             text-align: center;
             font-size: 12px;
             color: #ffff;
+            line-height: 2;
         }
 
     .guide-close-btn {

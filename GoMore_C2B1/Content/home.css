@@ -1,4 +1,6 @@
-﻿.home-page {
+﻿@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap");
+
+.home-page {
     margin: 0;
     padding: 0;
 }
@@ -44,6 +46,7 @@
 }
 
     .home-title h2 {
+        font-family: "Poppins", sans-serif;
         color: white;
         font-size: 80px;
         font-weight: 600;
@@ -52,15 +55,23 @@
 .home-body-container {
     display: flex;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     padding-top: 50px;
 }
 
+    .home-body-container h2 {
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        padding-bottom: 50px;
+        font-weight: 500;
+        color: var(--font-color);
+    }
+
 .body-container-wrapper {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: row;
-    width: 80%;
+    /*width: 80%;*/
 }
 
 .home-body-content {
@@ -70,17 +81,61 @@
     min-height: 300px;
     width: 300px;
     height: 300px;
-    margin: 30px;
-    background-color: lightgrey;
-    border-radius: 10px;
+    margin: 20px;
+    background-color: var(--bg-color);
     position: relative;
+    box-shadow: 0.3em 0.3em 1.2em rgb(0 0 0 / 10%);
+    border: 1px solid #fff;
 }
 
-.home-body-content h2{
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
+.home-body-content:hover {
+    box-shadow: 0.3em 0.3em 0.8em rgb(0 0 0 / 60%);
+    transition: 0.4s;
 }
+
+    .home-body-content label {
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 600;
+        padding-top: 130px;
+        color: var(--font-color);
+    }
+
+    .home-body-content i {
+        font-size: 50px;
+        font-weight: 600;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -20%);
+        color: var(--font-color);
+    }
+
+    .content-features p {
+        text-align: center;
+        padding-top: 20px;
+        font-size: 14px;
+        color: var(--font-color);
+    }
+
+.content-features {
+    text-align: center;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    margin-left: 25px;
+}
+
+    /*.home-body-content  {
+        text-align: center;
+        font-size: 100px;
+        font-weight: 500;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
     .home-body-content i {
         text-align: center;
@@ -90,4 +145,31 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }*/
+
+#backtoTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: var(--bg-color); /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 50%; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+    box-shadow: 0.3em 0.3em 0.8em rgb(0 0 0 / 10%);
+}
+
+#backtoTopBtn i {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--icon-color);
+}
+
+    #backtoTopBtn:hover {
+        background-color: #555; /* Add a dark-grey background on hover */
     }

@@ -22,7 +22,7 @@
                         <th scope="col">Belongings</th>
                         <th scope="col">Email</th>
                         <th scope="col">Date Created</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">@Resource.Action</th>
 
                     </tr>
                 </thead>
@@ -42,14 +42,14 @@
                             border: 1px solid var(--font-color);
                             margin-left: 5px;
                             padding: 10px 14px;">
-                                Edit
+                                @Resource.Edit
                             </button>
                         </td>
 
                     </tr>
                     <tr>
-                        <td scope="row">Model 2</td>
-                        <td>Jerry2</td>
+                        <td scope="row">Model 1</td>
+                        <td>Jerry</td>
                         <td>B10902205@mail.ntust.edu.tw</td>
                         <td>2/27/2024</td>
                         <td style="display: flex; justify-content: space-between">
@@ -62,14 +62,14 @@
                             border: 1px solid var(--font-color);
                             margin-left: 5px;
                             padding: 10px 14px;">
-                                Edit
+                                @Resource.Edit
                             </button>
                         </td>
 
                     </tr>
                     <tr>
-                        <td scope="row">Model 3</td>
-                        <td>Jerry3</td>
+                        <td scope="row">Model 1</td>
+                        <td>Jerrdwadsay</td>
                         <td>B10902205@mail.ntust.edu.tw</td>
                         <td>2/27/2024</td>
                         <td style="display: flex; justify-content: space-between">
@@ -82,7 +82,27 @@
                             border: 1px solid var(--font-color);
                             margin-left: 5px;
                             padding: 10px 14px;">
-                                Edit
+                                @Resource.Edit
+                            </button>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td scope="row">Model 1</td>
+                        <td>Jerdsawdy</td>
+                        <td>B10902205@mail.ntust.edu.tw</td>
+                        <td>2/27/2024</td>
+                        <td style="display: flex; justify-content: space-between">
+                            <select>
+                                <option>Change Belongings</option>
+                                <option>???</option>
+                                <option>???</option>
+                            </select>
+                            <button type="submit" style="
+                            border: 1px solid var(--font-color);
+                            margin-left: 5px;
+                            padding: 10px 14px;">
+                                @Resource.Edit
                             </button>
                         </td>
 
@@ -90,19 +110,9 @@
                 </tbody>
             </table>
             <ul class="pagination justify-content-center" id="ModelManagementpagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
+                <li class="page-item"><a class="page-link" href="#" aria-label="Previous">Previous</a></li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
-                @*<li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>*@
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
+                <li class="page-item"><a class="page-link" href="#" aria-label="Next">Next</a></li>
             </ul>
         </div>
     </div>
@@ -213,7 +223,7 @@
             const previousLink = document.createElement("a");
             previousLink.className = "page-link";
             previousLink.href = "#";
-            previousLink.textContent = "Previous";
+            previousLink.textContent = "@Resource.Previous";
             previousLink.addEventListener("click", function () {
                 if (currentPage > 1) {
                     currentPage--;
@@ -245,7 +255,7 @@
             const nextLink = document.createElement("a");
             nextLink.className = "page-link";
             nextLink.href = "#";
-            nextLink.textContent = "Next";
+            nextLink.textContent = "@Resource.Next";
             nextLink.addEventListener("click", function () {
                 if (currentPage < totalPages) {
                     currentPage++;

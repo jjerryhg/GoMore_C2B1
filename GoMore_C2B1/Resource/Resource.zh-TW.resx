@@ -229,4 +229,37 @@
   <data name="BackToLogin" xml:space="preserve">
     <value>回到登入</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="SelectRole" xml:space="preserve">
+    <value>權限選擇</value>
+  </data>
+  <data name="Taiwan" xml:space="preserve">
+    <value>台灣</value>
+  </data>
+  <data name="FeaturesDescription" xml:space="preserve">
+    <value>功能描述</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>儀表板</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>聯絡我們</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>關於我們</value>
+  </data>
+  <data name="LibraryFeatures" xml:space="preserve">
+    <value>您可以輕鬆儲存和展示 3D 模型的空間。</value>
+  </data>
+  <data name="FactoryFeatures" xml:space="preserve">
+    <value>上傳、自訂、創建 - 將 3D 模型轉變為個人化創作的入口。</value>
+  </data>
+  <data name="ScheduleFeatures" xml:space="preserve">
+    <value>探索、互動、組織 - 在管理專案時間表的同時無縫檢視和使用 3D 模型。</value>
+  </data>
+  <data name="ContactUsFeatures" xml:space="preserve">
+    <value>您可以直接聯繫周到的客戶服務 - 我們隨時為您提供及時的協助。</value>
+  </data>
 </root>

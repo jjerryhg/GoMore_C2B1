@@ -61,6 +61,15 @@ namespace GoMore_C2B1.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About Us.
+        /// </summary>
+        public static string AboutUs {
+            get {
+                return ResourceManager.GetString("AboutUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account Manager.
         /// </summary>
         public static string Accountmanager {
@@ -583,6 +592,24 @@ namespace GoMore_C2B1.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact Us.
+        /// </summary>
+        public static string ContactUs {
+            get {
+                return ResourceManager.GetString("ContactUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your direct line to attentive customer service - we&apos;re here to assist you promptly..
+        /// </summary>
+        public static string ContactUsFeatures {
+            get {
+                return ResourceManager.GetString("ContactUsFeatures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         public static string CookIslands {
@@ -664,6 +691,15 @@ namespace GoMore_C2B1.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dashboard.
+        /// </summary>
+        public static string Dashboard {
+            get {
+                return ResourceManager.GetString("Dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         public static string Denmark {
@@ -723,6 +759,15 @@ namespace GoMore_C2B1.Resource {
         public static string Ecuador {
             get {
                 return ResourceManager.GetString("Ecuador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
             }
         }
         
@@ -808,6 +853,15 @@ namespace GoMore_C2B1.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Upload, Customize, Create - Your gateway to transform 3D models into personalized creations..
+        /// </summary>
+        public static string FactoryFeatures {
+            get {
+                return ResourceManager.GetString("FactoryFeatures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         public static string FalklandIslands {
@@ -822,6 +876,15 @@ namespace GoMore_C2B1.Resource {
         public static string FaroeIslands {
             get {
                 return ResourceManager.GetString("FaroeIslands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Features Description.
+        /// </summary>
+        public static string FeaturesDescription {
+            get {
+                return ResourceManager.GetString("FeaturesDescription", resourceCulture);
             }
         }
         
@@ -948,6 +1011,15 @@ namespace GoMore_C2B1.Resource {
         public static string Library {
             get {
                 return ResourceManager.GetString("Library", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your space to effortlessly store and showcase 3D models..
+        /// </summary>
+        public static string LibraryFeatures {
+            get {
+                return ResourceManager.GetString("LibraryFeatures", resourceCulture);
             }
         }
         
@@ -1132,11 +1204,38 @@ namespace GoMore_C2B1.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Explore, Interact, Organize - Seamlessly view and engage with 3D models while managing project timelines..
+        /// </summary>
+        public static string ScheduleFeatures {
+            get {
+                return ResourceManager.GetString("ScheduleFeatures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Role.
+        /// </summary>
+        public static string SelectRole {
+            get {
+                return ResourceManager.GetString("SelectRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sign in to your account.
         /// </summary>
         public static string SignInAcc {
             get {
                 return ResourceManager.GetString("SignInAcc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taiwan.
+        /// </summary>
+        public static string Taiwan {
+            get {
+                return ResourceManager.GetString("Taiwan", resourceCulture);
             }
         }
         

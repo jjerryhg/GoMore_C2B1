@@ -8,6 +8,7 @@
     --login-color: #fff;
     --input-color: #Eaeeed;
     --hover-color: #fff;
+    --contentborder-color: #fff;
 }
 
 [data-theme="dark"] {
@@ -154,6 +155,10 @@ nav {
         position: absolute;
         transition: .4s;
         width: 26px;
+    }
+
+    .slider:after {
+        background: url('https://localhost:44339/sun_icon.svg');
     }
 
 input:checked + .slider {

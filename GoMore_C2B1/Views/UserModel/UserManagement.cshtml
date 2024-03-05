@@ -36,7 +36,7 @@
                             <td style="display: flex; justify-content: space-between">
                                 <form action="~/UserModel/UserManagement" method="post">
                                     <select name="permission" style="width: 200px;">
-                                        <option>Select role</option>
+                                        <option>@Resource.SelectRole</option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                     </select>
@@ -47,7 +47,7 @@
                             border: 1px solid var(--font-color);
                             margin-left: 5px;
                             padding: 10px 14px;">
-                                        Edit
+                                        @Resource.Edit
                                     </button>
                                 </form>
                             </td>
@@ -199,7 +199,7 @@
             const previousLink = document.createElement("a");
             previousLink.className = "page-link";
             previousLink.href = "#";
-            previousLink.textContent = "Previous";
+            previousLink.textContent = "@Resource.Previous";
             previousLink.addEventListener("click", function () {
                 if (currentPage > 1) {
                     currentPage--;
@@ -231,7 +231,7 @@
             const nextLink = document.createElement("a");
             nextLink.className = "page-link";
             nextLink.href = "#";
-            nextLink.textContent = "Next";
+            nextLink.textContent = "@Resource.Next";
             nextLink.addEventListener("click", function () {
                 if (currentPage < totalPages) {
                     currentPage++;

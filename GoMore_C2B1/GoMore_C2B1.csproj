@@ -278,6 +278,7 @@
     <Content Include="Scripts\stats.js\build\stats.min.js" />
     <Content Include="Scripts\stats.js\src\Stats.js" />
     <Content Include="Scripts\upload.js" />
+    <Content Include="sun_icon.svg" />
     <Content Include="test-1.jpg" />
     <Content Include="test-2.jpg" />
     <Content Include="test-3.jpg" />
