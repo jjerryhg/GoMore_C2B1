@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "ScheduleUpload";
+}
+
+@Styles.Render("~/Content/main")
+@Styles.Render("~/Content/DarkMode")
+
+<main id="content" style="margin-left: 65px;">
+    <section>
+        <div class="upload-wrapper">
+            <div class="upload-container">
+                <div class="upload-header justify-content-center ms-2 me-2">
+                    <div class="ms-2">
+                        <span>Schedule Display</span>
+                    </div>
+                </div>
+                <form>
+                    <!--<div class="upload-body d-flex flex-col">
+                        <div class="ms-lg-5 mt-4 mb-1">
+                            <span class="p-5"><b>File Name: </b>-->@*<span id="fileName"></span>*@<!--</span>
+                        </div>
+                    </div>-->
+                    <div class="d-flex justify-content-center mt-2 mb-1 me-5 ms-5 flex-column">
+                        <div class="ms-2 mt-4 mb-1">
+                            <span><b>File Name: </b>@*<span id="fileName"></span>*@</span>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <input class="form-control" style="width: 100%;" type="file" name="file" @*id="formFile"*@ accept=".ifc,.dwg" multiple>
+                            <button class="btn btn-outline-secondary ms-2" type="submit" style="padding: 8px 12px;">
+                                Upload
+                            </button>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-2 mb-1 me-5 ms-5 flex-column">
+                        <div class="ms-2 mt-4 mb-1">
+                            <span><b>File Type: </b></span>
+                        </div>
+                        <div>
+                            <textarea class="form-control" placeholder="Test" readonly>Test</textarea>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-2 mb-1 me-5 ms-5 flex-column">
+                        <div class="ms-2 mt-4 mb-1">
+                            <span><b>Associated Tags: </b></span>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <input class="form-control" style=""/>
+                            <button class="btn btn-outline-secondary ms-2" type="submit" style="padding: 8px 12px;">
+                                Create
+                            </button>
+                        </div>
+                    </div>
+                    <div class="upload-submit d-flex justify-content-center mt-4 mb-4">
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                        <label class="upload-tag btn btn-outline-primary me-3" for="btn-check-outlined">Tag</label><br>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined2" autocomplete="off">
+                        <label class="upload-tag btn btn-outline-primary me-3" for="btn-check-outlined2">Tag</label><br>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined3" autocomplete="off">
+                        <label class="upload-tag btn btn-outline-primary me-3" for="btn-check-outlined3">Tag</label><br>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined4" autocomplete="off">
+                        <label class="upload-tag btn btn-outline-primary me-3" for="btn-check-outlined4">Tag</label><br>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined5" autocomplete="off">
+                        <label class="upload-tag btn btn-outline-primary me-3" for="btn-check-outlined5">Tag</label><br>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined6" autocomplete="off">
+                        <label class="upload-tag btn btn-outline-primary" for="btn-check-outlined6">Tag</label><br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>

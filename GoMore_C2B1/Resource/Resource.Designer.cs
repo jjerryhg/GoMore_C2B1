@@ -1204,7 +1204,7 @@ namespace GoMore_C2B1.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Explore, Interact, Organize - Seamlessly view and engage with 3D models while managing project timelines..
+        ///   Looks up a localized string similar to Seamlessly view and engage with 3D models while managing project timelines..
         /// </summary>
         public static string ScheduleFeatures {
             get {

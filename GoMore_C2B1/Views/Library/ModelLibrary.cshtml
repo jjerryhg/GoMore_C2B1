@@ -3,11 +3,11 @@
 @Styles.Render("~/Content/main")
 @Styles.Render("~/Content/DarkMode")
 
-<main id="content" style="margin-left: 50px; margin-top: 10px;">
+<main id="content" style="margin-left: 65px; margin-top: 10px;">
     <section id="model-library">
         <div class="library-wrapper">
             <div class="library-container flex-column">
-                <div class="library-header">
+                <div class="library-header ms-2 me-2">
                     <span>Categories</span>
                     <select class="filter-category">
                         <option value="">Select a category</option>
@@ -18,83 +18,143 @@
                 </div>
                 <div class="library-body">
                     <div class="library-content-add" id="add">
-                        <a href="#" class="library-add"><i class="bi bi-plus-lg"></i></a>
-                        <a href="#"><img src=""></a>
+                        <a href="#" class="library-add" data-toggle="modal" data-target="#uploadmodelModal"><i class="bi bi-plus-lg"></i></a>
                     </div>
                     <div class="library-content">
-                        <a href="#"><img src=""></a>
+                        <a href="~/Library/UploadedModel"><img src="~/content.jpg"></a>
                         <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
                         <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
                         <a href="#" class="library-download"><i class="bi bi-download"></i></a>
                     </div>
                     <div class="library-content">
-                        <a href="#"><img src=""></a>
+                        <a href="~/Library/UploadedModel"><img src="~/content.jpg"></a>
                         <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
                         <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
                         <a href="#" class="library-download"><i class="bi bi-download"></i></a>
                     </div>
-                    <div class="library-content">
-                        <a href="#"><img src=""></a>
-                        <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
-                        <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
-                        <a href="#" class="library-download"><i class="bi bi-download"></i></a>
-                    </div>
-                    <div class="library-content">
-                        <a href="#"><img src=""></a>
-                        <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
-                        <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
-                        <a href="#" class="library-download"><i class="bi bi-download"></i></a>
-                    </div>
-                    <div class="library-content">
-                        <a href="#"><img src=""></a>
-                        <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
-                        <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
-                        <a href="#" class="library-download"><i class="bi bi-download"></i></a>
-                    </div>
-                    <div class="library-content">
-                        <a href="#"><img src=""></a>
-                        <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
-                        <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
-                        <a href="#" class="library-download"><i class="bi bi-download"></i></a>
-                    </div>
-                    <div class="library-content">
-                        <a href="#"><img src=""></a>
-                        <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
-                        <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
-                        <a href="#" class="library-download"><i class="bi bi-download"></i></a>
-                    </div>
-                    <div class="library-content">
-                        <a href="#"><img src=""></a>
-                        <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
-                        <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
-                        <a href="#" class="library-download"><i class="bi bi-download"></i></a>
-                    </div>
-                    <div class="library-content">
-                        <a href="#"><img src=""></a>
-                        <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
-                        <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
-                        <a href="#" class="library-download"><i class="bi bi-download"></i></a>
-                    </div>
-                    <div class="library-content">
-                        <a href="#"><img src=""></a>
-                        <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
-                        <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
-                        <a href="#" class="library-download"><i class="bi bi-download"></i></a>
-                    </div>
-                    <div class="library-content">
-                        <a href="#"><img src=""></a>
-                        <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
-                        <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
-                        <a href="#" class="library-download"><i class="bi bi-download"></i></a>
-                    </div>
-
-
-
-
                 </div>
             </div>
         </div>
     </section>
+    <div class="modal fade" id="uploadmodelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 735px;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="btn-close position-absolute mt-1 me-1 top-0 end-0 bg-light" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="register-wrapper ">
+                        <div class="">
+                            <h2>Upload Model</h2>
+                            <div class="input-box">
+                                <label>Upload Image</label>
+                                <div>
+                                    <input class="" type="file" />
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <label>Upload Model</label>
+                                <div>
+                                    <input class="" type="file" />
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <label>Category *</label>
+                                <div>
+                                    <select class="form-select form-select-lg" aria-label=".form-select-lg example">
+                                        <option selected>Please select the category</option>
+                                        <option value="">Sofa</option>
+                                        <option value="">Lamp</option>
+                                        <option value="">Door</option>
+                                        <option value="">Table</option>
+                                        <option value="">Chair</option>
+                                        <option value="">Cabinet</option>
+                                        <option value="">Window</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <label>Series *</label>
+                                <input type="text" placeholder="" class="" required />
+                            </div>
+                            <div class="input-label-box">
+                                <label class="mb-2">Belong To *</label>
+                                <div>
+                                    <div class="form-check mb-2">
+                                        <input type="radio" name="Owner" value="Organization" class="" id="flexCheckDefault1" />
+                                        <label class="form-check-label" for="flexCheckDefault1">Organization</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="Owner" value="Personal" class="" id="flexCheckDefault2" />
+                                        <label class="form-check-label" for="flexCheckDefault2">Personal</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <label class="">Author/Organization Name *</label>
+                                <input type="text" placeholder="" class="" />
+                            </div>
+                            <div class="input-box">
+                                <label class="">Model Name *</label>
+                                <input type="text" placeholder="" class="" />
+                            </div>
+                            <div class="input-box">
+                                <label class="">Version *</label>
+                                <input type="text" placeholder="" class="" />
+                            </div>
+                            <div class="input-box">
+                                <label class="">H: *</label>
+                                <input type="number" placeholder="" class="" />
+                            </div>
+                            <div class="input-box">
+                                <label class="">W: *</label>
+                                <input type="number" placeholder="" class="" />
+                            </div>
+                            <div class="input-box">
+                                <label class="">D: *</label>
+                                <input type="number" placeholder="" class="" />
+                            </div>
+                            <div class="input-box">
+                                <label>Unit *</label>
+                                <div class="">
+                                    <select class="form-select form-select-lg" aria-label=".form-select-lg example">
+                                        <option value="mm" data-calc="Millimeters">mm</option>
+                                        <option value="cm" data-calc="Centimeters">cm</option>
+                                        <option value="m" data-calc="Meters">m</option>
+                                        <option data-calc="Kilometers" value="km">km</option>
+                                        <option data-calc="Inches" value="inch">inch</option>
+                                        <option data-calc="Feet" value="ft">ft</option>
+                                        <option data-calc="Yards" value="yd">yd</option>
+                                        <option data-calc="Miles" value="mil">mil</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <label class="">Product Structure</label>
+                                <input type="text" placeholder="" class="" />
+                            </div>
+                            <div class="input-box">
+                                <label class="">Product Panel</label>
+                                <input type="text" placeholder="" class="" />
+                            </div>
+                            <div class="input-box">
+                                <label class="">Introduction</label>
+                                <input type="text" placeholder="" class="" />
+                            </div>
+                            <div class="register-btn d-flex justify-content-center">
+                                <button type="submit">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <script src="~/Scripts/main.js"></script>

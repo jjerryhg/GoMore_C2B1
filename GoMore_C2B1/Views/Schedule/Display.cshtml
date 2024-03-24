@@ -7,8 +7,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
-<div id="content">
-    <div style="width: 100vw; height: 90vh;" id="container"></div>
+<div id="content" style="margin-left: 65px;">
+    <div style="width: calc(100vw - 65px); height: 94vh;" id="container"></div>
+    <div style="height: 18px; background-color: #222a32;"></div>
 </div>
 
 <script type="importmap">
@@ -179,7 +180,7 @@
     const stats = new Stats();
     stats.showPanel(2);
     document.body.append(stats.dom);
-    stats.dom.style.left = '0';
+    stats.dom.style.right = '0px';
     //const renderer = components.renderer;
     renderer.onBeforeUpdate.add(() => stats.begin());
     renderer.onAfterUpdate.add(() => stats.end());

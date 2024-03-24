@@ -25,5 +25,9 @@ namespace GoMore_C2B1.Controllers
         {
             return View();
         }
+        public ActionResult ScheduleUpload()
+        {
+            return View();
+        }
     }
 }

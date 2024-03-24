@@ -176,25 +176,29 @@ function toggleSlideMenu() {
     var menu = document.getElementById('menu');
     var content = document.getElementById('content');
     var sidebar = document.getElementById('sidebar');
+    var sidebar_nav = document.getElementById('sidebar-nav');
 
     // Check if the menu is currently open
     if (menu.style.width === '250px') {
         // If open, close the menu
         menu.style.width = '0px';
-        content.style.marginLeft = '0px';
+        content.style.marginLeft = '65px';
         sidebar.style.marginLeft = '0px';
         menu.style.opacity = '0';
+        sidebar_nav.style.opacity = '1';
     } else {
         // If closed, open the menu
         menu.style.width = '250px';
         content.style.marginLeft = '250px';
         sidebar.style.marginLeft = '250px';
         menu.style.opacity = '1';
-
+        sidebar_nav.style.opacity = '0';
         menu.style.transition = 'width 0.5s ease, opacity 0.5s ease';
         content.style.transition = 'margin-left 0.5s ease';
         sidebar.style.transition = 'margin-left 0.5s ease';
+        sidebar_nav.style.transition = 'opacity 0.2s ease';
     }
+
 }
 
 // Get file input element

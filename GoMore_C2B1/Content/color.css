@@ -3,7 +3,8 @@
     --bg-color: #fff;
     --navbar-color: #E3E6E9;
     --icon-color: #000;
-    --sidebar-color: #E3E6E9;
+    /*--sidebar-color: #E3E6E9;*/
+    --sidebar-color: #f5f5f5;
     --hover-color: #fff;
     --login-color: #fff;
     --input-color: #Eaeeed;
@@ -13,7 +14,7 @@
 
 [data-theme="dark"] {
     --font-color: #fff;
-    --bg-color: #27292D;
+    --bg-color: #000;
     --navbar-color: #18191A;
     --icon-color: #fff;
     --sidebar-color: #18191A;
@@ -29,8 +30,13 @@ body {
 }
 
 nav {
-    background-color: var(--navbar-color);
+    background-color: var(--sidebar-color);
     transition: background-color 0.5s ease, color 0.5s ease;
+    box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+}
+
+#content label, h1, h2, li{
+    color: var(--font-color);
 }
 
 .left-menu i {

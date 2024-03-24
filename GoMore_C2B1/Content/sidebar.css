@@ -2,12 +2,13 @@
     height: 100%;
     width: 0px;
     position: fixed;
-    z-index: 100001;
+    z-index: 1001;
     top: 0;
     left: 0;
     opacity: .9;
     overflow-x: hidden;
     padding-top: 60px;
+    box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
     /* transition: 0.5s; */
 }
 
@@ -30,7 +31,8 @@
 
     .sidebar-content a:hover {
         background-color: var(--hover-color);
-        margin-left: 10px;
+        margin: 0 5px 0 5px;
+        border-radius: 5px;
         cursor: pointer;
     }
 
@@ -59,7 +61,8 @@
 
         .dropdown-wrapper button:hover {
             background-color: var(--hover-color);
-            margin-left: 10px;
+            margin: 0 5px 0 5px;
+            border-radius: 5px;
             cursor: pointer;
         }
 
@@ -68,7 +71,7 @@
     position: relative;
 }
 
-.dropdown-menu {
+#sidebar-dropdown-menu {
     position: static;
     float: none;
     background-color: transparent;
@@ -76,22 +79,23 @@
     border: none;
 }
 
-    .dropdown-menu a {
+    #sidebar-dropdown-menu a {
         padding: 20px 20px;
         font-weight: 500;
         font-size: 16px;
         margin-left: 15px;
     }
 
-        .dropdown-menu a:hover {
+        #sidebar-dropdown-menu a:hover {
             background-color: var(--hover-color);
-            margin-left: 10px;
+            margin: 0 5px 0 5px;
+            border-radius: 5px;
             cursor: pointer;
         }
 
-.show {
-    display: block;
-}
+    .show {
+        display: block;
+    }
 
 .logo-gomore {
     position: absolute;
@@ -109,3 +113,17 @@
 .dropdown-toggle {
     width: 200px;
 }
+
+.sidebar-navigation {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    height: 100%;
+    width: 65px;
+    z-index: 10;
+    box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+    background-color: var(--sidebar-color);
+}
+
+

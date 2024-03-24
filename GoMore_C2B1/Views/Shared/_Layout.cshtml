@@ -53,7 +53,57 @@
             infoModal.showModal();
         </script>
     }
-    <nav class="d-flex flex-wrap justify-content-between navbar navbar-dark">
+    <div class="sidebar-navigation" id="sidebar-nav">
+        <div class="d-flex flex-column">
+            <div class="btn-group dropend" style="margin: 110px 5px 10px 5px;">
+                <button class="btn" data-bs-toggle="dropdown" style="padding: 10px 0;"><i class="bi bi-folder-fill" style="font-size: 20px; color: var(--font-color);"></i></button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="~/Library/ModelLibrary">@Resource.Library</a>
+                    </li>
+                </ul>
+            </div>
+            @if (Session["Account"] != null)
+            {
+                <div class="btn-group dropend" style="margin: 10px 5px 10px 5px;">
+                    <button class="btn" data-bs-toggle="dropdown" style="padding: 10px 0;"><i class="bi bi-person-badge" style="font-size: 20px; color: var(--font-color);"></i></button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="~/UserModel/UserManagement">@Resource.Accountmanager</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group dropend" style="margin: 10px 5px 10px 5px;">
+                    <button class="btn" data-bs-toggle="dropdown" style="padding: 10px 0;"><i class="bi bi-house-gear" style="font-size: 20px; color: var(--font-color);"></i></button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="~/UserModel/ModelManagement">@Resource.Modelmanager</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group dropend" style="margin: 10px 5px 10px 5px;">
+                    <a href="#" class="btn" data-bs-toggle="dropdown" style="padding: 10px 0;"><i class="bi bi-gear-wide-connected" style="font-size: 20px; color: var(--font-color);"></i></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="~/Factory/Upload">@Resource.Upload</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group dropend" style="margin: 10px 5px 10px 5px;">
+                    <a href="#" class="btn" data-bs-toggle="dropdown" style="padding: 10px 0;"><i class="bi bi-calendar3" style="font-size: 20px; color: var(--font-color);"></i></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="~/Schedule/Display">@Resource.Display</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item mt-2" href="~/Schedule/ScheduleUpload">@Resource.Upload</a>
+                        </li>
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+    <nav class="d-flex flex-wrap justify-content-between navbar navbar-dark ">
         <div class="left-menu">
             <div id="sidebar">
                 <a class="left-menu-btn" onclick="toggleSlideMenu()">
@@ -80,7 +130,7 @@
                                     <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                         <i class="bi bi-gear-wide-connected"></i>@Resource.Factory
                                     </button>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu" id="sidebar-dropdown-menu">
                                         <li><a class="dropdown-item" href="~/Factory/Upload"><i class="bi bi-upload"></i>@Resource.Upload</a></li>
                                         @*<li><a class="dropdown-item" href="~/Factory/Parameter"><i class="bi bi-wrench-adjustable"></i>Parameter</a></li>*@
                                     </ul>
@@ -92,9 +142,10 @@
                                     <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi bi-calendar3"></i>@Resource.Schedule
                                     </button>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu" id="sidebar-dropdown-menu">
                                         @*<li><a class="dropdown-item" href="~/Schedule/Info"><i class="bi bi-info-lg"></i>Info</a></li>*@
                                         <li><a class="dropdown-item" href="~/Schedule/Display"><i class="bi bi-display"></i>@Resource.Display</a></li>
+                                        <li><a class="dropdown-item" href="~/Schedule/ScheduleUpload"><i class="bi bi-upload"></i>@Resource.Upload</a></li>
                                         @*<li><a class="dropdown-item" href="~/Schedule/Search"><i class="bi bi-search"></i>Search</a></li>
                                             <li><a class="dropdown-item" href="~/Schedule/Status"><i class="bi bi-columns-gap"></i>Status</a></li>*@
                                     </ul>
@@ -600,7 +651,6 @@
                                                     <option value="ZW">Zimbabwe</option>
                                                 </select>
                                                 @*<input type="text" name="Country"/>*@
-
                                             </div>
                                             <div class="input-box">
                                                 <label>@Resource.Password *</label>
@@ -637,7 +687,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="modal-footer">
                                 <button onclick="clearInputs(), resetpwd1(), resetpwd2(), resetToggleIcon()" class="btn btn-primary"
                                         data-bs-target="#exampleModal"
@@ -651,7 +700,6 @@
                 </div>
             }
         </div>
-
     </nav>
     @RenderBody()
 

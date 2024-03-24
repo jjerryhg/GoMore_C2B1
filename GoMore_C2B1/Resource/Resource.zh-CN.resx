@@ -271,9 +271,12 @@
     <value>上传、定制、创建 - 将 3D 模型转变为个性化创作的门户。</value>
   </data>
   <data name="ScheduleFeatures" xml:space="preserve">
-    <value>探索、交互、组织 - 在管理项目时间表的同时无缝查看和使用 3D 模型。</value>
+    <value>在管理项目时间表的同时无缝查看和使用 3D 模型。</value>
   </data>
   <data name="ContactUsFeatures" xml:space="preserve">
     <value>您可以直接联系周到的客户服务 - 我们随时为您提供及时的帮助。</value>
+  </data>
+  <data name="SelectRole" xml:space="preserve">
+    <value>權限選擇</value>
   </data>
 </root>

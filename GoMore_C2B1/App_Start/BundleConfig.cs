@@ -39,6 +39,9 @@ namespace GoMore_C2B1
             bundles.Add(new StyleBundle("~/Content/main").Include(
                         "~/Content/main.css"));
 
+            bundles.Add(new StyleBundle("~/Content/uploadedmodel").Include(
+                        "~/Content/uploadedmodel.css"));
+
             bundles.Add(new StyleBundle("~/Content/home").Include(
                         "~/Content/home.css"));
 

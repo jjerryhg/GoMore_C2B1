@@ -30,6 +30,7 @@ nav {
 
 .left-menu {
     margin-left: 15px;
+    z-index: 100;
 }
 
 .right-menu {

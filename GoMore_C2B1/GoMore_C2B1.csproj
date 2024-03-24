@@ -190,6 +190,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -217,10 +218,12 @@
     <Content Include="Content\login.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\register.css" />
+    <Content Include="Content\scheduleupload.css" />
     <Content Include="Content\sidebar.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\topnav.css" />
+    <Content Include="Content\uploadedmodel.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -304,6 +307,8 @@
     <Content Include="Views\UserModel\UserManagement.cshtml" />
     <Content Include="Views\UserModel\ModelManagement.cshtml" />
     <Content Include="Views\Factory\Download.cshtml" />
+    <Content Include="Views\Schedule\ScheduleUpload.cshtml" />
+    <Content Include="Views\Library\UploadedModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

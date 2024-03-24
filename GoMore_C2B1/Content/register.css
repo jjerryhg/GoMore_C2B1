@@ -61,6 +61,16 @@
         font-size: 16px;
     }
 
+.input-label-box {
+    position: relative;
+     margin-bottom: 22px;
+}
+
+.input-label-box label {
+    padding-left: 16px;
+    opacity: 0.75;
+}
+
 /* .register-btn {
     display: flex;
     justify-content: center;

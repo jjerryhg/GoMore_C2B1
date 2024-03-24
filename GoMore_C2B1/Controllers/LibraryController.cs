@@ -13,5 +13,9 @@ namespace GoMore_C2B1.Controllers
         {
             return View();
         }
+        public ActionResult UploadedModel()
+        {
+            return View();
+        }
     }
 }
