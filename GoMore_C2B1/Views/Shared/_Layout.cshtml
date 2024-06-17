@@ -59,7 +59,7 @@
                 <button class="btn" data-bs-toggle="dropdown" style="padding: 10px 0;"><i class="bi bi-folder-fill" style="font-size: 20px; color: var(--font-color);"></i></button>
                 <ul class="dropdown-menu">
                     <li>
-                        <a class="dropdown-item" href="~/Library/ModelLibrary">@Resource.Library</a>
+                        <a class="dropdown-item trigger-loading" href="~/Library/ModelLibrary">@Resource.Library</a>
                     </li>
                 </ul>
             </div>
@@ -69,7 +69,7 @@
                     <button class="btn" data-bs-toggle="dropdown" style="padding: 10px 0;"><i class="bi bi-person-badge" style="font-size: 20px; color: var(--font-color);"></i></button>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="~/UserModel/UserManagement">@Resource.Accountmanager</a>
+                            <a class="dropdown-item trigger-loading" href="~/UserModel/UserManagement">@Resource.Accountmanager</a>
                         </li>
                     </ul>
                 </div>
@@ -77,7 +77,7 @@
                     <button class="btn" data-bs-toggle="dropdown" style="padding: 10px 0;"><i class="bi bi-house-gear" style="font-size: 20px; color: var(--font-color);"></i></button>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="~/UserModel/ModelManagement">@Resource.Modelmanager</a>
+                            <a class="dropdown-item trigger-loading" href="~/UserModel/ModelManagement">@Resource.Modelmanager</a>
                         </li>
                     </ul>
                 </div>
@@ -85,7 +85,7 @@
                     <a href="#" class="btn" data-bs-toggle="dropdown" style="padding: 10px 0;"><i class="bi bi-gear-wide-connected" style="font-size: 20px; color: var(--font-color);"></i></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="~/Factory/Upload">@Resource.Upload</a>
+                            <a class="dropdown-item trigger-loading" href="~/Factory/Upload">@Resource.Upload</a>
                         </li>
                     </ul>
                 </div>
@@ -93,10 +93,10 @@
                     <a href="#" class="btn" data-bs-toggle="dropdown" style="padding: 10px 0;"><i class="bi bi-calendar3" style="font-size: 20px; color: var(--font-color);"></i></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="~/Schedule/Display">@Resource.Display</a>
+                            <a class="dropdown-item trigger-loading" href="~/Schedule/Display">@Resource.Display</a>
                         </li>
                         <li>
-                            <a class="dropdown-item mt-2" href="~/Schedule/ScheduleUpload">@Resource.Upload</a>
+                            <a class="dropdown-item mt-2 trigger-loading" href="~/Schedule/ScheduleUpload">@Resource.Upload</a>
                         </li>
                     </ul>
                 </div>
@@ -116,22 +116,22 @@
                         </a>
                     </div>
                     <div class="sidebar-content">
-                        <a href="~/Library/ModelLibrary"><i class="bi bi-folder-fill"></i>@Resource.Library</a>
+                        <a href="~/Library/ModelLibrary" class="trigger-loading"><i class="bi bi-folder-fill"></i>@Resource.Library</a>
                         @if (Session["Account"] != null)
                         {
                             if (Session["AccountType"].Equals("1"))
                             {
-                                <a href="~/UserModel/UserManagement"><i class="bi bi-person-badge"></i>@Resource.Accountmanager</a>
-                                <a href="~/UserModel/ModelManagement"><i class="bi bi-house-gear"></i>@Resource.Modelmanager</a>
+                                <a href="~/UserModel/UserManagement" class="trigger-loading"><i class="bi bi-person-badge"></i>@Resource.Accountmanager</a>
+                                <a href="~/UserModel/ModelManagement" class="trigger-loading"><i class="bi bi-house-gear"></i>@Resource.Modelmanager</a>
                             }
                             <hr class="hr hr-blurry" />
                             <div class="dropdown-wrapper">
                                 <div class="dropdown">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    <button class="dropdown-toggle trigger-loading" type="button" data-bs-toggle="dropdown" id="nav10">
                                         <i class="bi bi-gear-wide-connected"></i>@Resource.Factory
                                     </button>
                                     <ul class="dropdown-menu" id="sidebar-dropdown-menu">
-                                        <li><a class="dropdown-item" href="~/Factory/Upload"><i class="bi bi-upload"></i>@Resource.Upload</a></li>
+                                        <li><a class="dropdown-item trigger-loading" href="~/Factory/Upload"><i class="bi bi-upload"></i>@Resource.Upload</a></li>
                                         @*<li><a class="dropdown-item" href="~/Factory/Parameter"><i class="bi bi-wrench-adjustable"></i>Parameter</a></li>*@
                                     </ul>
                                 </div>
@@ -139,7 +139,7 @@
                             <hr class="hr hr-blurry" />
                             <div class="dropdown-wrapper">
                                 <div class="dropdown">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="dropdown-toggle trigger-loading" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi bi-calendar3"></i>@Resource.Schedule
                                     </button>
                                     <ul class="dropdown-menu" id="sidebar-dropdown-menu">
@@ -204,7 +204,7 @@
             <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox">
                     <input type="checkbox" id="checkbox" onclick="toggleTheme()" />
-                    <div class="slider round"></div>
+                    <div class="slider round trigger-loading"></div>
                 </label>
             </div>
 
@@ -214,19 +214,19 @@
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
                 <li class="mdl-menu__item" onclick="changeLanguage('zh-CN')" style="cursor: pointer;">
                     <a class="dropdown-item d-flex align-items-center">
-                        <span>簡體中文</span>
+                        <span class="trigger-loading">簡體中文</span>
                     </a>
                 </li>
 
                 <li class="mdl-menu__item" onclick="changeLanguage('zh-TW')" style="cursor: pointer;">
                     <a class="dropdown-item d-flex align-items-center">
-                        <span>繁體中文</span>
+                        <span class="trigger-loading">繁體中文</span>
                     </a>
                 </li>
 
                 <li class="mdl-menu__item" onclick="changeLanguage('en-US')" style="cursor: pointer;">
                     <a class="dropdown-item d-flex align-items-center">
-                        <span>English</span>
+                        <span class="trigger-loading">English</span>
                     </a>
                 </li>
             </ul>
@@ -245,13 +245,13 @@
                             <div class="modal-body" style="background-color: #01356B;">
                                 <button type="button" class="btn-close position-absolute mt-1 me-1 top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
                                 @*<div class="top-profile mt-2 p-5 d-flex justify-content-center">
-                                    <div class="image d-flex flex-column justify-content-center align-items-center">
-                                        <button class="btn btn-secondary">
-                                            <img src="#" height="100" width="100" />
-                                        </button>
-                                        <span class="name mt-3">專案數量: 50</span>
-                                    </div>
-                                </div>*@
+                                        <div class="image d-flex flex-column justify-content-center align-items-center">
+                                            <button class="btn btn-secondary">
+                                                <img src="#" height="100" width="100" />
+                                            </button>
+                                            <span class="name mt-3">專案數量: 50</span>
+                                        </div>
+                                    </div>*@
                             </div>
                             <div class="modal-body" style="background-color: #01356B;">
                                 <div class="d-flex justify-content-center text-center ">
@@ -267,7 +267,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="right-menu-btn" onclick="window.location.href='/Home/Logout'"><i class="bi bi-box-arrow-left"></i></button>
+                <button id="logout-btn"type="submit" class="right-menu-btn" onclick="window.location.href='/Home/Logout'"><i class="bi bi-box-arrow-left"></i></button>
             }
             @if (Session["Account"] == null)
             {
@@ -290,14 +290,14 @@
                                             </div>
                                             <div class="login-upper-form">
                                                 <label>@Resource.Email </label> <br>
-                                                <input type="text" name="Email" required="" placeholder="@Resource.EmailPlaceholder"> <br>
+                                                <input type="text" name="Email" id="email" required="" placeholder="@Resource.EmailPlaceholder"> <br>
                                                 <label>@Resource.Password</label> <br>
-                                                    <div class="login-input-icons">
-                                                        <input class="login-input-field" type="password" name="Password" id="password" required="" placeholder="@Resource.PasswordPlaceholder">
-                                                        <span onclick="togglePasswordVisibility()">
-                                                            <i class="bi bi-eye input-icon" id="toggleIcon"></i>
-                                                        </span>
-                                                    </div>
+                                                <div class="login-input-icons">
+                                                    <input class="login-input-field" type="password" name="Password" id="password" required="" placeholder="@Resource.PasswordPlaceholder">
+                                                    <span onclick="togglePasswordVisibility()">
+                                                        <i class="bi bi-eye input-icon" id="toggleIcon"></i>
+                                                    </span>
+                                                </div>
                                                 <br>
                                                 <div class="login-page-btn">
                                                     <button type="submit" id="submit">@Resource.Login</button> <br>
@@ -654,7 +654,7 @@
                                             </div>
                                             <div class="input-box">
                                                 <label>@Resource.Password *</label>
-                                                <div class="login-input-icons" >
+                                                <div class="login-input-icons">
                                                     <input class="login-input-field" type="password" name="Password" id="password1" required="" placeholder="@Resource.PasswordPlaceholder">
                                                     <span onclick="togglePasswordVisibility1()">
                                                         <i class="bi bi-eye input-icon" id="toggleIcon1"></i>
@@ -701,8 +701,61 @@
             }
         </div>
     </nav>
+    <div id="loadingOverlay" class="overlay">
+        @*<div class="spinner"></div>*@
+        @*<div class="dots-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>*@
+        <div id="loadingText">0%</div>
+    </div>
     @RenderBody()
 
     @RenderSection("scripts", required: false)
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add any button to trigger the loading animation
+            var loadingOverlay = document.getElementById('loadingOverlay');
+
+            //function showLoadingOverlay() {
+            //    loadingOverlay.style.display = 'flex';
+            //    setTimeout(function () {
+            //        loadingOverlay.style.display = 'none';
+            //    }, 750); 
+            //}
+
+            function showLoadingOverlay() {
+                    loadingOverlay.style.display = 'flex';
+                    var percentage = 0;
+                    loadingText.innerHTML = percentage + '%';
+
+                var interval = setInterval(function () {
+                    percentage += 10; // Increment the percentage
+                    loadingText.innerHTML = percentage + '%';
+
+                    if (percentage >= 100) {
+                        clearInterval(interval);
+                        loadingOverlay.style.display = 'none';
+                    }
+                }, 100); // Adjust the increment time as needed
+            }
+
+            // Add event listener to each button by ID
+            //buttonIds.forEach(function (buttonId) {
+            //    var button = document.getElementById(buttonId);
+            //    if (button) {
+            //        button.addEventListener('click', showLoadingOverlay);
+            //    }
+            //});
+
+            document.body.addEventListener('click', function (event) {
+                if (event.target.classList.contains('trigger-loading') && event.target.id !== 'login-btn') {
+                    showLoadingOverlay();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

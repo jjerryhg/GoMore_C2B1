@@ -50,8 +50,8 @@
                     </div>
                     <hr />
                     <div class="d-flex justify-content-center">
-                        <button class="btn btn-outline-primary mt-3" type="button" style="padding: 8px 12px;">CHECK MODEL</button>
-                        <button class="btn btn-primary ms-4 mt-3" type="button" style="padding: 8px 12px;">DOWNLOAD</button>
+                        <button class="btn btn-outline-primary mt-3 trigger-loading" type="button" style="padding: 8px 12px;">CHECK MODEL</button>
+                        <button class="btn btn-primary ms-4 mt-3 trigger-loading" type="button" style="padding: 8px 12px;">DOWNLOAD</button>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
             <span class="mb-2"><b>Comment</b></span>
             <input class="form-control" placeholder="Please enter comment here" />
             <div class="d-flex justify-content-center mt-3">
-                <button class="btn btn-secondary" type="submit" style="padding: 8px 12px;">Comment</button>
+                <button class="btn btn-secondary trigger-loading" type="submit" style="padding: 8px 12px;">Comment</button>
             </div>
         </div>
         <div class="ms-5 me-5 mb-5 d-flex flex-column">
@@ -106,6 +106,53 @@
             </div>
         </div>
     </div>
+    <div id="loadingOverlay3" class="overlay">
+        <div id="loadingText3">0%</div>
+    </div>
 
 </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Add any button to trigger the loading animation
+        var loadingOverlay = document.getElementById('loadingOverlay3');
+
+        //function showLoadingOverlay() {
+        //    loadingOverlay.style.display = 'flex';
+        //    setTimeout(function () {
+        //        loadingOverlay.style.display = 'none';
+        //    }, 750);
+        //}
+
+        function showLoadingOverlay() {
+            loadingOverlay.style.display = 'flex';
+            var percentage = 0;
+            loadingText3.innerHTML = percentage + '%';
+
+            var interval = setInterval(function () {
+                percentage += 10; // Increment the percentage
+                loadingText3.innerHTML = percentage + '%';
+
+                if (percentage >= 100) {
+                    clearInterval(interval);
+                    loadingOverlay.style.display = 'none';
+                }
+            }, 100); // Adjust the increment time as needed
+        }
+
+        // Add event listener to each button by ID
+        //buttonIds.forEach(function (buttonId) {
+        //    var button = document.getElementById(buttonId);
+        //    if (button) {
+        //        button.addEventListener('click', showLoadingOverlay);
+        //    }
+        //});
+
+        document.body.addEventListener('click', function (event) {
+            if (event.target.classList.contains('trigger-loading')) {
+                showLoadingOverlay();
+            }
+        });
+    });
+</script>
 

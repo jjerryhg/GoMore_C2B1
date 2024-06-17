@@ -898,3 +898,47 @@ html {
         max-width: 300px;
     }
 }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none; /* Hidden by default */
+    z-index: 90000;
+}
+
+#loadingText {
+    font-size: 5em;
+    color: white;
+}
+
+#loadingText2 {
+    font-size: 5em;
+    color: white;
+}
+
+#loadingText3 {
+    font-size: 5em;
+    color: white;
+}
+
+#loadingText4 {
+    font-size: 5em;
+    color: white;
+}
+
+#loadingText5 {
+    font-size: 5em;
+    color: white;
+}
+
+#loadingText6 {
+    font-size: 5em;
+    color: white;
+}

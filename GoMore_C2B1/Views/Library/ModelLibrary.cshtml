@@ -9,11 +9,11 @@
             <div class="library-container flex-column">
                 <div class="library-header ms-2 me-2">
                     <span>Categories</span>
-                    <select class="filter-category">
+                    <select class="filter-category" id="category-select">
                         <option value="">Select a category</option>
-                        <option value="">.dwg</option>
-                        <option value="">.3dm</option>
-                        <option value="">.dxf</option>
+                        <option value="1">.dwg</option>
+                        <option value="2">.3dm</option>
+                        <option value="3">.dxf</option>
                     </select>
                 </div>
                 <div class="library-body">
@@ -23,14 +23,14 @@
                     <div class="library-content">
                         <a href="~/Library/UploadedModel"><img src="~/content.jpg"></a>
                         <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
-                        <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
-                        <a href="#" class="library-download"><i class="bi bi-download"></i></a>
+                        <a href="#" class="library-like"><i class="bi bi-x-lg trigger-loading"></i></a>
+                        <a href="#" class="library-download"><i class="bi bi-download trigger-loading"></i></a>
                     </div>
                     <div class="library-content">
                         <a href="~/Library/UploadedModel"><img src="~/content.jpg"></a>
                         <a href="#" class="library-user"><i class="bi bi-person-square"></i> Jerry</a>
-                        <a href="#" class="library-like"><i class="bi bi-x-lg"></i></a>
-                        <a href="#" class="library-download"><i class="bi bi-download"></i></a>
+                        <a href="#" class="library-like"><i class="bi bi-x-lg trigger-loading"></i></a>
+                        <a href="#" class="library-download"><i class="bi bi-download trigger-loading"></i></a>
                     </div>
                 </div>
             </div>
@@ -144,7 +144,7 @@
                                 <input type="text" placeholder="" class="" />
                             </div>
                             <div class="register-btn d-flex justify-content-center">
-                                <button type="submit">Upload</button>
+                                <button class="trigger-loading" type="submit">Upload</button>
                             </div>
                         </div>
                     </div>
@@ -155,6 +155,62 @@
             </div>
         </div>
     </div>
+    <div id="loadingOverlay2" class="overlay">
+        <div id="loadingText2">0%</div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add any button to trigger the loading animation
+            var loadingOverlay = document.getElementById('loadingOverlay2');
+
+            //function showLoadingOverlay() {
+            //    loadingOverlay.style.display = 'flex';
+            //    setTimeout(function () {
+            //        loadingOverlay.style.display = 'none';
+            //    }, 750);
+            //}
+
+            function showLoadingOverlay() {
+                loadingOverlay.style.display = 'flex';
+                var percentage = 0;
+                loadingText2.innerHTML = percentage + '%';
+
+                var interval = setInterval(function () {
+                    percentage += 10; // Increment the percentage
+                    loadingText2.innerHTML = percentage + '%';
+
+                    if (percentage >= 100) {
+                        clearInterval(interval);
+                        loadingOverlay.style.display = 'none';
+                    }
+                }, 100); // Adjust the increment time as needed
+            }
+
+            // Add event listener to each button by ID
+            //buttonIds.forEach(function (buttonId) {
+            //    var button = document.getElementById(buttonId);
+            //    if (button) {
+            //        button.addEventListener('click', showLoadingOverlay);
+            //    }
+            //});
+
+            document.body.addEventListener('click', function (event) {
+                if (event.target.classList.contains('trigger-loading')) {
+                    showLoadingOverlay();
+                }
+            });
+
+            // Add event listener to the select element
+            var selectElement = document.getElementById('category-select');
+            selectElement.addEventListener('change', function () {
+                if (selectElement.value) {
+                    showLoadingOverlay();
+                }
+            });
+        });
+    </script>
 </main>
+
+
 
 <script src="~/Scripts/main.js"></script>

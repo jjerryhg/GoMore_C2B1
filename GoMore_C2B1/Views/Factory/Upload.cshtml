@@ -24,15 +24,15 @@
                         </div>
                         <div class="upload-submit d-flex justify-content-center mt-4 mb-4">
                             <!--
-                             <button class="upload-btn">
-                                 Search
-                             </button>
-                            -->
+                         <button class="upload-btn">
+                             Search
+                         </button>
+                        -->
                             <select name="option" style="width: 200px;">
-                            <option value="3dm">3dm</option>
-                            <option value="dxf">dxf</option>
+                                <option value="3dm">3dm</option>
+                                <option value="dxf">dxf</option>
                             </select>
-                            <button class="upload-btn" type="submit">
+                            <button class="upload-btn trigger-loading" type="submit">
                                 Confirm
                             </button>
                         </div>
@@ -63,26 +63,26 @@
                                 {
                                     foreach (var item in Model)
                                     {
-                                <tr>
-                                    <td>@item.ID</td>
-                                    <td>@item.FileName</td>
-                                    <td>@item.UploadTime</td>
-                                    <td>@item.Uploader</td>
-                                    <td>@item.FileType</td>
-                                    <td>@item.FileConvert2</td>
-                                    <td style="display: flex; justify-content: space-between">
-                                        <form action="~/Factory/Download" method="post">
-                                            <input name="FileName" value="@item.FileName" hidden />
-                                            <input name="FileType" value="@item.FileType" hidden />
-                                            <button type="submit" style="
+                                        <tr>
+                                            <td>@item.ID</td>
+                                            <td>@item.FileName</td>
+                                            <td>@item.UploadTime</td>
+                                            <td>@item.Uploader</td>
+                                            <td>@item.FileType</td>
+                                            <td>@item.FileConvert2</td>
+                                            <td style="display: flex; justify-content: space-between">
+                                                <form action="~/Factory/Download" method="post">
+                                                    <input name="FileName" value="@item.FileName" hidden />
+                                                    <input name="FileType" value="@item.FileType" hidden />
+                                                    <button class="trigger-loading" type="submit" style="
                             border: 1px solid var(--font-color);
                             margin-left: 5px;
                             padding: 10px 14px;">
-                                                Download
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
+                                                        Download
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     }
                                 }
 
@@ -90,7 +90,7 @@
                         </table>
                         <ul class="pagination justify-content-center" id="Uploadpagination">
                             <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
+                                <a class="page-link trigger-loading" href="#" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
@@ -98,7 +98,7 @@
                             @*<li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>*@
                             <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
+                                <a class="page-link trigger-loading" href="#" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
@@ -109,8 +109,55 @@
             </div>
 
         </div>
+        <div id="loadingOverlay4" class="overlay">
+            <div id="loadingText4">0%</div>
+        </div>
     </section>
 </main>
 
 <script src="~/Scripts/main.js"></script>
 <script src="~/Scripts/upload.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Add any button to trigger the loading animation
+        var loadingOverlay = document.getElementById('loadingOverlay4');
+
+        //function showLoadingOverlay() {
+        //    loadingOverlay.style.display = 'flex';
+        //    setTimeout(function () {
+        //        loadingOverlay.style.display = 'none';
+        //    }, 750);
+        //}
+
+        function showLoadingOverlay() {
+            loadingOverlay.style.display = 'flex';
+            var percentage = 0;
+            loadingText4.innerHTML = percentage + '%';
+
+            var interval = setInterval(function () {
+                percentage += 10; // Increment the percentage
+                loadingText4.innerHTML = percentage + '%';
+
+                if (percentage >= 100) {
+                    clearInterval(interval);
+                    loadingOverlay.style.display = 'none';
+                }
+            }, 100); // Adjust the increment time as needed
+        }
+
+        // Add event listener to each button by ID
+        //buttonIds.forEach(function (buttonId) {
+        //    var button = document.getElementById(buttonId);
+        //    if (button) {
+        //        button.addEventListener('click', showLoadingOverlay);
+        //    }
+        //});
+
+        document.body.addEventListener('click', function (event) {
+            if (event.target.classList.contains('trigger-loading')) {
+                showLoadingOverlay();
+            }
+        });
+    });
+</script>
